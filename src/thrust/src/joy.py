@@ -33,7 +33,7 @@ def start():
     global trust
     global thruster_pins
     global last
-    thruster_pins = [24, 20, 27, 5]
+    thruster_pins = [24, 20, 27, 19]
     last = [1500, 1500, 1500, 1500]
     pi = pigpio.pi()
     pi.set_servo_pulsewidth(thruster_pins[0], 1500)
