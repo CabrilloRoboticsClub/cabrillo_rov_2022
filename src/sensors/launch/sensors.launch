@@ -1,0 +1,8 @@
+<launch>
+  <!-- Default argument parameters, use different values in the command line to change them -->
+  <arg name="name" default="rov"/>
+  <arg name="mode" default="auto"/>
+  <group ns="$(arg name)">
+    <node name="sensors" pkg="sensors" type="sensors.py"></node>
+  </group>
+</launch>
