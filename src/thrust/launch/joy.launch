@@ -4,6 +4,6 @@
   <arg name="mode" default="auto"/>
   <group ns="$(arg name)">
     <node pkg="joy" type="joy_node" name="joy_node" output="screen"></node>
-    <node name="joyController" pkg="joyController" type="joy.py"></node>
+    <node name="joy" pkg="thrust" type="joy.py"></node>
   </group>
 </launch>
