@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospkg
 import rospy
@@ -41,7 +41,7 @@ def start():
     pi.set_servo_pulsewidth(thruster_pins[2], 1500)
     pi.set_servo_pulsewidth(thruster_pins[3], 1500)
     trust = pi.set_servo_pulsewidth
-    rospy.Subscriber("joy", Joy, callback)
+    rospy.Subscriber("/rov/joy", Joy, callback)
     rospy.init_node('controller')
     rospy.spin()
 
