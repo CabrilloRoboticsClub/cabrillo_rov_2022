@@ -1,9 +1,12 @@
 #!/bin/bash
-#in a on boot cronjob /home/ubuntu/bin/controller
-#sudo pigpiod # put this line in a cronjob under root on boot
+#make a on boot cronjob with `chrontab -e`
+# then paste at the bottom `@reboot /home/ubuntu/cabrillo_rov/misc/controller.sh`
+#sudo pigpiod # put this line in a cronjob under root on boot or create a service
 sleep 1
 roscore &
+cd cabrillo_rov/
+catkin_make
+source ./devel/setup.bash
 sleep 5
-rosrun joy joy_node &
-sleep 5
-/home/ubuntu/mate/src/thrust/src/joy.py
+roslaunch ./src/thrust/launch/joy.launch &
+roslaunch ./src/sensors/launch/sensors.launch & 
