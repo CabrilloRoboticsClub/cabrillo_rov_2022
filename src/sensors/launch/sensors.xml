@@ -6,12 +6,7 @@
     <node name="sensors" pkg="sensors" type="sensors.py"></node>
   </group>
   
-  <!-- be sure to add this first imu-filter-madgwick
-  http://wiki.ros.org/robot_pose_ekf#Subscribed_Topics 
-  https://www.x-io.co.uk/res/doc/madgwick_internal_report.pdf
-  http://docs.ros.org/en/noetic/api/robot_localization/html/index.html
-  
-  -->
+  <!-- be sure to add this first imu-filter-madgwick -->
   
   <node name="robot_localization" pkg="robot_localization" type="ekf_localization_node" respawn="false">
     
