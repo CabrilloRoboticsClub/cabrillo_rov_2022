@@ -3,6 +3,7 @@
 # then paste at the bottom `@reboot /home/ubuntu/cabrillo_rov/misc/controller.sh`
 #sudo pigpiod # put this line in a cronjob under root on boot or create a service
 sleep 1
+source /opt/ros/noetic/setup.bash
 roscore &
 cd cabrillo_rov/
 catkin_make
