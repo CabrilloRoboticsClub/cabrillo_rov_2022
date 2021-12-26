@@ -6,6 +6,7 @@ sleep 1
 source /opt/ros/noetic/setup.bash
 roscore &
 cd cabrillo_rov/
+git pull
 catkin_make
 source ./devel/setup.bash
 sleep 5
