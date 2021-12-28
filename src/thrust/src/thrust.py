@@ -26,10 +26,10 @@ class Thrust:
       data.angular.x  # "yaw" rotate left/right
       data.linear.z  # up/down
       data.angular.z  # "roll" rotate side/side # should not do this much/at all
-      self.thrust(self.thruster_pins[0], 1500 + (data.linear.x * 130))
-      self.thrust(self.thruster_pins[1], 1500 + (data.linear.x * 130))
-      self.thrust(self.thruster_pins[2], 1500 - (data.linear.z * 130))
-      self.thrust(self.thruster_pins[3], 1500 - (data.linear.z * 130))
+      self.thrust(self.thruster_pins[0], 1500 + (data.linear.x * self.scaler))
+      self.thrust(self.thruster_pins[1], 1500 + (data.linear.x * self.scaler))
+      self.thrust(self.thruster_pins[2], 1500 - (data.linear.z * self.scaler))
+      self.thrust(self.thruster_pins[3], 1500 - (data.linear.z * self.scaler))
 
       """
       for thruster_num in range(len(self.thruster_pins)):
