@@ -1,0 +1,43 @@
+# To test it out run `roslaunch teleop_twist_joy teleop.launch config_filepath:='./misc/controller.config.yaml'`
+# mmm its strange it looks like the ros1 vs ros2 version does not support the axis_linear.x only the axis_linear which limits it for not being useful for us
+
+axis_linear.x: 1  # Left thumb stick (up/down)
+scale_linear: 0.7
+scale_linear_turbo: 1.5
+
+axis_angular.x: 0  # Left thumb stick (left/right)
+scale_angular: 0.4
+
+axis_linear.z: 4  # Right thumb stick (up/down)
+scale_linear: 0.7
+scale_linear_turbo: 1.5
+
+axis_angular.z: 3 # Right thumb stick (left/right)
+scale_angular: 0.4
+
+enable_button: 1  # A
+enable_turbo_button: 0  # B
+
+axis_mappings:
+      -
+        axis: 4  # Right thumb stick (up/down)
+        target: linear.z
+        scale: 1.0
+        offset: 0.0
+      -
+        axis: 3  # Right thumb stick (left/right)
+        target: angular.z
+        scale: 1.0
+        offset: 0.0
+      -
+        axis: 1  # Left thumb stick (up/down)
+        target: linear.x
+        scale: 1.0
+        offset: 0.0
+      -
+        axis: 0  # Left thumb stick (left/right)
+        target: angular.x
+        scale: 1.0
+        offset: 0.0
+        
+# if this was working could also utilize the other buttons and write our own msg structure for the grippers and even cameras but I guess just going to reinvent the wheel and the documentation for this node is very poor
