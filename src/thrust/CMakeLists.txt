@@ -158,7 +158,7 @@ include_directories(
 #############
 
 catkin_install_python(PROGRAMS
-  src/joy.py
+  src/thrust.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
  

@@ -1,9 +1,0 @@
-<launch>
-  <!-- Default argument parameters, use different values in the command line to change them -->
-  <arg name="name" default="rov"/>
-  <arg name="mode" default="auto"/>
-  <group ns="$(arg name)">
-    <node pkg="joy" type="joy_node" name="joy_node" output="screen"></node>
-    <node name="joy" pkg="thrust" type="joy.py"></node>
-  </group>
-</launch>
