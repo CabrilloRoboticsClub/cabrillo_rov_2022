@@ -10,5 +10,4 @@ git pull
 catkin_make
 source ./devel/setup.bash
 sleep 5
-roslaunch ./src/thrust/launch/joy.launch &
-roslaunch ./src/sensors/launch/sensors.launch & 
+roslaunch ./launch/rov.launch &
