@@ -1,0 +1,4 @@
+<launch>
+  <node name="thrust" pkg="thrust" type="thrust.py"></node>
+  <node name="sensors" pkg="sensors" type="sensors.py"></node>
+</launch>

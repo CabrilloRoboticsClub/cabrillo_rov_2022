@@ -1,0 +1,5 @@
+<launch>
+  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args = "--perspective-file $(find thrust)/../../misc/shore.perspective"/>
+  <node pkg="joy" type="joy_node" name="joy_node" output="screen"></node>
+  <node name="control" pkg="control" type="controller.py"></node>
+</launch>
