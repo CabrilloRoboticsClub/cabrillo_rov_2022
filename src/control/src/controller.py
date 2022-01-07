@@ -42,7 +42,7 @@ class Controller:
       if axis == 0:
         t.angular.x = data.axes[axis]
       elif axis == 1:
-        t.linear.x = data.axes[axis]
+        t.linear.x = -data.axes[axis]
       elif axis == 3:
         t.angular.z = data.axes[axis]
       elif axis == 4:
