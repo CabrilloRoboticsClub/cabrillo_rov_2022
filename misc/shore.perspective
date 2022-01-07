@@ -4,14 +4,14 @@
     "mainwindow": {
       "keys": {
         "geometry": {
-          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb000300000000005600000057000008d20000037d000000560000007c000008d20000037d00000000000000000780000000560000007c000008d20000037d')",
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb00030000000000480000001b0000077f0000043700000048000000400000077f000004370000000000000000078000000048000000400000077f00000437')",
           "type": "repr(QByteArray.hex)",
-          "pretty-print": "     V W   } V |   }      V |   }"
+          "pretty-print": "     H     7 H @   7      H @   7"
         },
         "state": {
-          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd00000001000000030000087d000002d6fc0100000003fc000000000000042a000003ae00fffffffc0200000002fc000000160000015a000000aa00fffffffc0100000002fb0000005a007200710074005f0069006d006100670065005f0076006900650077005f005f0049006d0061006700650056006900650077005f005f0033005f005f0049006d0061006700650056006900650077005700690064006700650074010000000000000212000001d400fffffffb0000005a007200710074005f0069006d006100670065005f0076006900650077005f005f0049006d0061006700650056006900650077005f005f0031005f005f0049006d0061006700650056006900650077005700690064006700650074010000021800000212000001d400fffffffc0000017600000176000000f600fffffffc0100000002fc00000000000002c6000000f500fffffffa000000010100000002fb0000005a007200710074005f0069006d006100670065005f0076006900650077005f005f0049006d0061006700650056006900650077005f005f0032005f005f0049006d00610067006500560069006500770057006900640067006500740100000267000002360000000000000000fb0000006a007200710074005f0072006f0062006f0074005f007300740065006500720069006e0067005f005f0052006f0062006f0074005300740065006500720069006e0067005f005f0032005f005f0052006f0062006f0074005300740065006500720069006e0067005500690100000000ffffffff000000f500fffffffb0000006a007200710074005f0072006f0062006f0074005f007300740065006500720069006e0067005f005f0052006f0062006f0074005300740065006500720069006e0067005f005f0031005f005f0052006f0062006f0074005300740065006500720069006e00670055006901000002cc0000015e000000e700fffffffc000004300000034d000002eb00fffffffc0200000002fb00000026007200710074005f007200760069007a005f005f005200560069007a005f005f0031005f005f01000000160000023e000000c500fffffffb00000042007200710074005f006e00610076005f0076006900650077005f005f004e0061007600690067006100740069006f006e0056006900650077005f005f0031005f005f010000025a000000920000008c00fffffffb00000062007200710074005f0072006f0062006f0074005f006d006f006e00690074006f0072005f005f0052006f0062006f0074004d006f006e00690074006f0072005f005f0031005f005f0052006f0062006f00740020004d006f006e00690074006f00720100000783000000fa000000dd00ffffff0000087d0000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd000000010000000300000738000003ccfc0100000003fc000000000000049f0000033800fffffffc0200000002fc0000001600000242000000aa00fffffffc0100000002fb0000005a007200710074005f0069006d006100670065005f0076006900650077005f005f0049006d0061006700650056006900650077005f005f0033005f005f0049006d006100670065005600690065007700570069006400670065007401000000000000024c000000dd00fffffffb0000005a007200710074005f0069006d006100670065005f0076006900650077005f005f0049006d0061006700650056006900650077005f005f0031005f005f0049006d006100670065005600690065007700570069006400670065007401000002520000024d000001d400fffffffc0000025e00000184000000f600fffffffc0100000003fc00000000000001a7000000f500fffffffa000000010100000002fb0000005a007200710074005f0069006d006100670065005f0076006900650077005f005f0049006d0061006700650056006900650077005f005f0032005f005f0049006d00610067006500560069006500770057006900640067006500740100000267000002360000000000000000fb0000006a007200710074005f0072006f0062006f0074005f007300740065006500720069006e0067005f005f0052006f0062006f0074005300740065006500720069006e0067005f005f0032005f005f0052006f0062006f0074005300740065006500720069006e0067005500690100000000ffffffff000000f500fffffffb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c0069007300680065007200570069006400670065007401000001ad000002f20000023d00fffffffb0000006a007200710074005f0072006f0062006f0074005f007300740065006500720069006e0067005f005f0052006f0062006f0074005300740065006500720069006e0067005f005f0031005f005f0052006f0062006f0074005300740065006500720069006e0067005500690100000279000001350000000000000000fc000004a500000184000000f500fffffffc0200000002fb00000026007200710074005f007200760069007a005f005f005200560069007a005f005f0031005f005f0100000016000003010000005f00fffffffb00000042007200710074005f006e00610076005f0076006900650077005f005f004e0061007600690067006100740069006f006e0056006900650077005f005f0031005f005f010000031d000000c50000008c00fffffffb00000062007200710074005f0072006f0062006f0074005f006d006f006e00690074006f0072005f005f0052006f0062006f0074004d006f006e00690074006f0072005f005f0031005f005f0052006f0062006f00740020004d006f006e00690074006f0072010000062f00000109000000dd00ffffff000007380000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
           "type": "repr(QByteArray.hex)",
-          "pretty-print": "                   *                    Zrqt_image_view__ImageView__3__ImageViewWidget          Zrqt_image_view__ImageView__1__ImageViewWidget          v v                      Zrqt_image_view__ImageView__2__ImageViewWidget          jrqt_robot_steering__RobotSteering__2__RobotSteeringUi          jrqt_robot_steering__RobotSteering__1__RobotSteeringUi          0 M                                >                                         Z                                                                   }                                                      "
+          "pretty-print": "                     8                  Zrqt_image_view__ImageView__3__ImageViewWidget          Zrqt_image_view__ImageView__1__ImageViewWidget          ^                        Zrqt_image_view__ImageView__2__ImageViewWidget          jrqt_robot_steering__RobotSteering__2__RobotSteeringUi          Xrqt_publisher__Publisher__1__PublisherWidget          jrqt_robot_steering__RobotSteering__1__RobotSteeringUi                                               _                                                                                                   /       8                                                      "
         }
       },
       "groups": {
@@ -29,7 +29,7 @@
     "pluginmanager": {
       "keys": {
         "running-plugins": {
-          "repr": "{'rqt_image_view/ImageView': [1, 3], 'rqt_nav_view/NavigationView': [1], 'rqt_robot_monitor/RobotMonitor': [1], 'rqt_robot_steering/RobotSteering': [1, 2], 'rqt_rviz/RViz': [1]}",
+          "repr": "{'rqt_image_view/ImageView': [1, 3], 'rqt_nav_view/NavigationView': [1], 'rqt_publisher/Publisher': [1], 'rqt_robot_monitor/RobotMonitor': [1], 'rqt_robot_steering/RobotSteering': [2], 'rqt_rviz/RViz': [1]}",
           "type": "repr"
         }
       },
@@ -65,7 +65,7 @@
                   "type": "repr"
                 },
                 "mouse_pub_topic": {
-                  "repr": "''",
+                  "repr": "'/usb_cam1/image_raw/compressed_mouse_left'",
                   "type": "repr"
                 },
                 "num_gridlines": {
@@ -89,7 +89,7 @@
                   "type": "repr"
                 },
                 "topic": {
-                  "repr": "''",
+                  "repr": "'/usb_cam1/image_raw/compressed'",
                   "type": "repr"
                 },
                 "zoom1": {
@@ -199,7 +199,7 @@
                   "type": "repr"
                 },
                 "mouse_pub_topic": {
-                  "repr": "''",
+                  "repr": "'/usb_cam0/image_raw/compressed_mouse_left'",
                   "type": "repr"
                 },
                 "num_gridlines": {
@@ -223,7 +223,7 @@
                   "type": "repr"
                 },
                 "topic": {
-                  "repr": "''",
+                  "repr": "'/usb_cam0/image_raw/compressed'",
                   "type": "repr"
                 },
                 "zoom1": {
@@ -250,6 +250,37 @@
                 },
                 "parent": {
                   "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_publisher__Publisher__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__PublisherWidget": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "'Message Publisher'",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "publishers": {
+                  "repr": "\"[{'topic_name': '/cmd_gripper1', 'type_name': 'std_msgs/Float32', 'rate': 1.0, 'enabled': False, 'publisher_id': 0, 'counter': 0, 'expressions': {'/cmd_gripper1/data': '1'}}, {'topic_name': '/cmd_gripper2', 'type_name': 'std_msgs/Float32', 'rate': 1.0, 'enabled': False, 'publisher_id': 1, 'counter': 0, 'expressions': {'/cmd_gripper2/data': '1'}}, {'topic_name': '/override', 'type_name': 'std_msgs/Bool', 'rate': 1.0, 'enabled': False, 'publisher_id': 2, 'counter': 9, 'expressions': {'/override/data': 'False'}}]\"",
                   "type": "repr"
                 }
               },
@@ -312,7 +343,7 @@
             "plugin": {
               "keys": {
                 "topic": {
-                  "repr": "'/cmd_vel'",
+                  "repr": "'/cmd_vel/x'",
                   "type": "repr"
                 },
                 "vw_max": {
@@ -359,15 +390,15 @@
             "plugin": {
               "keys": {
                 "topic": {
-                  "repr": "'/cmd_vel1'",
+                  "repr": "'/cmd_vel'",
                   "type": "repr"
                 },
                 "vw_max": {
-                  "repr": "3.0",
+                  "repr": "1.0",
                   "type": "repr"
                 },
                 "vw_min": {
-                  "repr": "-3.0",
+                  "repr": "-1.0",
                   "type": "repr"
                 },
                 "vx_max": {
@@ -389,7 +420,7 @@
             "dock_widget__": {
               "keys": {
                 "dock_widget_title": {
-                  "repr": "'default.rviz[*] - RViz'",
+                  "repr": "'rov.rviz[*] - RViz'",
                   "type": "repr"
                 },
                 "dockable": {
@@ -410,7 +441,7 @@
                   "type": "repr"
                 },
                 "rviz_config_file": {
-                  "repr": "'/opt/ros/noetic/share/rviz/default.rviz'",
+                  "repr": "'./misc/rov.rviz'",
                   "type": "repr"
                 }
               },
