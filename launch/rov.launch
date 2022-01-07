@@ -1,4 +1,37 @@
 <launch>
   <node name="thrust" pkg="thrust" type="thrust.py"></node>
   <node name="sensors" pkg="sensors" type="sensors.py"></node>
+  <node name="grip" pkg="grip" type="grip.py"></node>
+  
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="freq" value="10.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="odom_used" value="false"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="true"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+  </node>
+  
+  <node name="usb_cam0" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/v4l/by-id/usb-HBVCAM_CAMERA_HBVCAM_CAMERA-video-index0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="mjpeg" />
+    <param name="camera_frame_id" value="cam_0" />
+    <param name="io_method" value="mmap"/>
+    <param name="camera_name" value="cam_0" />
+  </node>
+  
+  <node name="usb_cam1" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/v4l/by-id/usb-Image_Processor_Integrated_Camera_Integrated_Camera-video-index0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="cam_1" />
+    <param name="io_method" value="mmap"/>
+    <param name="camera_name" value="cam_1" />
+  </node>
+
 </launch>
