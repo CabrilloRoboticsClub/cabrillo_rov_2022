@@ -6,8 +6,8 @@ sleep 1
 source /opt/ros/noetic/setup.bash
 roscore &
 cd cabrillo_rov/
-git pull
-catkin_make
+git pull    # Comment out for quicker rov startup
+catkin_make # Comment out for quicker rov startup
 source ./devel/setup.bash
 sleep 5
 roslaunch ./launch/rov.launch &
