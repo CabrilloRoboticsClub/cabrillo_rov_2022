@@ -22,10 +22,10 @@ class Controller:
     significant_twist_delta = False
     gripper_scaler = .05
     """ @NOTE
-        axis_angular.x: 0  # left up/down
-        axis_linear.x: 1   # left left/right
-        axis_angular.z: 3  # right left/right
-        axis_linear.z: 4   # right up/down
+        axis_angular.z: 0  # left stick up/down
+        axis_linear.x: 1   # left stick left/right
+        axis_angular.x: 3  # right stick left/right
+        axis_linear.z: 4   # right stick up/down
         
         @note value 1 means not pressed, -1 fully pressed
         gripper left close axis 5  # left trigger "LT" on controller
@@ -40,13 +40,13 @@ class Controller:
       # very fine movements on one axes but not the other on the same stick, if this node is running a low cpu system
       # then reimplement
       if axis == 0:
-        t.angular.x = data.axes[axis]
+        t.angular.z = data.axes[axis]
       elif axis == 1:
         t.linear.x = -data.axes[axis]
       elif axis == 3:
-        t.angular.z = data.axes[axis]
+        t.angular.x = data.axes[axis]
       elif axis == 4:
-        t.linear.z = data.axes[axis]
+        t.linear.z = -data.axes[axis]
       self.last[axis] = data.axes[axis]
       significant_twist_delta = True
 

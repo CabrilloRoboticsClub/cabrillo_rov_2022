@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import math
 import rospkg
 import rospy
 from geometry_msgs.msg import Twist
@@ -23,37 +24,34 @@ class Thrust:
   def move(self, data):
     if not self.overridden:
       data.linear.x  # forward/back
-      data.angular.x  # "yaw" rotate left/right
+      data.angular.x  # "roll" rotate side/side # should not do this much/at all, currently ignored
       data.linear.z  # up/down
-      data.angular.z  # "roll" rotate side/side # should not do this much/at all
-      self.thrust(self.thruster_pins[0], 1500 + (data.linear.x * self.scaler))
-      self.thrust(self.thruster_pins[1], 1500 + (data.linear.x * self.scaler))
-      self.thrust(self.thruster_pins[2], 1500 - (data.linear.z * self.scaler))
-      self.thrust(self.thruster_pins[3], 1500 - (data.linear.z * self.scaler))
+      data.angular.z  # "yaw" rotate left/right
+      
+      # math.cos() 
+      # @NOTE: data.angular.x is alredy from -1 -> 1 so can just use it as such
+      self.thrust(self.thruster_pins[0], self.base + ((data.linear.x - data.angular.z) * self.scaler))
+      self.thrust(self.thruster_pins[1], self.base + ((data.linear.x + data.angular.z) * self.scaler))
+      self.thrust(self.thruster_pins[2], self.base + (data.linear.z * self.scaler))
+      self.thrust(self.thruster_pins[3], self.base + (data.linear.z * self.scaler))
 
-      """
-      for thruster_num in range(len(self.thruster_pins)):
-        if abs(self.last[thruster_num] - data[thruster_num]) > .01:
-          self.thrust(self.thruster_pins[thruster_num], 1500 + (data.axes[0] * 130))
-          self.last[thruster_num] = data.axes[0]
-      """
 
   # @sync #TODO: add blocking so if we get a joy/command msg we will ignore it
   def override(self, data):
-    self.overridden = data
-    if data:
-      self.thrust(self.thruster_pins[0], 1500)
-      self.thrust(self.thruster_pins[1], 1500)
-      self.thrust(self.thruster_pins[2], 1500)
-      self.thrust(self.thruster_pins[3], 1500)
+    self.overridden = data.data
+    if data.data:
+      self.thrust(self.thruster_pins[0], self.base)
+      self.thrust(self.thruster_pins[1], self.base)
+      self.thrust(self.thruster_pins[2], self.base)
+      self.thrust(self.thruster_pins[3], self.base)
 
   # Initializes everything
   def run(self):
     pi = pigpio.pi()
-    pi.set_servo_pulsewidth(self.thruster_pins[0], 1500)
-    pi.set_servo_pulsewidth(self.thruster_pins[1], 1500)
-    pi.set_servo_pulsewidth(self.thruster_pins[2], 1500)
-    pi.set_servo_pulsewidth(self.thruster_pins[3], 1500)
+    pi.set_servo_pulsewidth(self.thruster_pins[0], self.base)
+    pi.set_servo_pulsewidth(self.thruster_pins[1], self.base)
+    pi.set_servo_pulsewidth(self.thruster_pins[2], self.base)
+    pi.set_servo_pulsewidth(self.thruster_pins[3], self.base)
     self.thrust = pi.set_servo_pulsewidth
     rospy.Subscriber("cmd_vel", Twist, self.move)
     rospy.Subscriber("override", Bool, self.override)
