@@ -22,7 +22,7 @@ sudo apt update
 sudo apt install ros-noetic-desktop-full
 sudo apt install ros-noetic-robot-pose-ekf ros-noetic-robot-localization ros-noetic-imu-filter-madgwick python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential ros-noetic-joy ros-noetic-joystick-drivers
 
-crontab -l | { cat; echo "@reboot /home/ubuntu/cabrillo_rov/misc/controller.sh >/tmp/scriptLog"; } | crontab -
+crontab -l | { cat; echo "@reboot /home/ubuntu/cabrillo_rov/misc/rov_startup.sh >/tmp/scriptLog"; } | crontab -
 
 sudo apt install python3-pip
 pip3 install pigpio
