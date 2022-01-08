@@ -37,3 +37,51 @@ git clone git@github.com:Carter90/cabrillo_rov.git
 cd cabrillo_rov/
 git pull
 ```
+##Other Notes
+`sudo apt-get install raspi-config rpi-update`
+
+(https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.3-preinstalled-server-arm64+raspi.img.xz)[https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.3-preinstalled-server-arm64+raspi.img.xz]
+
+`sudo nano /etc/udev/rules.d/99-com.rules `
+Then paste
+`SUBSYSTEM=="ic2-dev", GROUP="i2c", MODE="0660"`
+
+```
+sudo chown :i2c /dev/i2c-1
+sudo chmod g+rw /dev/i2c-1
+```
+
+`@reboot pigpiod;chown :i2c /dev/i2c-1;chmod g+rw /dev/i2c-1`
+
+```
+sudo apt install ros-noetic-robot-localization ros-noetic-usb-cam
+pip3 install adafruit-circuitpython-lsm6ds
+```
+
+`sudo nano /lib/systemd/system/pigpiod.service`
+Then paste
+```
+[Unit]
+Description=Daemon required to control GPIO pins via pigpio
+[Service]
+ExecStart=/usr/local/bin/pigpiod
+ExecStop=/bin/systemctl kill -s SIGKILL pigpiod
+Type=forking
+[Install]
+WantedBy=multi-user.target
+```
+
+## Shore
+```
+#ros desktop install and stuff like the rqt and joy
+```
+
+`export ROS_MASTER_URI=http://$(getent hosts earle-s1.local | cut -d " " -f1):11311`
+
+### Uncomplicated Firewall may cause issues
+Something to note the Ubuntu Uncomplicated Firewall might cause issues its been fine until tonight if you do a `ros topic echo /cmd_vel` on both the laptop(shore) and the rov(sshed in) and don't see it on the rover its probably a firewall issue.
+11311
+`sudo ufw disable`
+
+`sudo ufw enable`
+
