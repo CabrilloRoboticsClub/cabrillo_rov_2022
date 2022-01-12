@@ -32,7 +32,7 @@ rosdep update
 
 ssh-keygen
 cat /home/ubuntu/.ssh/id_rsa.pub # please put into the repo
-git clone git@github.com:Carter90/cabrillo_rov.git
+git clone git@github.com:cabrillorobotics/cabrillo_rov.git
 
 cd cabrillo_rov/
 git pull
