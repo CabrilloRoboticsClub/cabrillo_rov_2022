@@ -59,7 +59,7 @@ class Sensors:
     self.temp_publisher.publish(temp)
 
   def read_pressure(self, _):
-    fluid_p = FluidPressure(fluid_pressure=0)  #@TODO read the sensor data
+    fluid_p = FluidPressure(fluid_pressure=0)  # @TODO read the sensor data
     fluid_p.header.frame_id = self.frame
     fluid_p.header.stamp = rospy.Time.now()
     self.pressure_publisher.publish(fluid_p)

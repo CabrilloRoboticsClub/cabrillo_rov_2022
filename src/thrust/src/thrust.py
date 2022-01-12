@@ -27,14 +27,13 @@ class Thrust:
       data.angular.x  # "roll" rotate side/side # should not do this much/at all, currently ignored
       data.linear.z  # up/down
       data.angular.z  # "yaw" rotate left/right
-      
+
       # math.cos() 
-      # @NOTE: data.angular.x is alredy from -1 -> 1 so can just use it as such
+      # @NOTE: data.angular.x is already from -1 -> 1 so can just use it as such
       self.thrust(self.thruster_pins[0], self.base + ((data.linear.x - data.angular.z) * self.scaler))
       self.thrust(self.thruster_pins[1], self.base + ((data.linear.x + data.angular.z) * self.scaler))
       self.thrust(self.thruster_pins[2], self.base + (data.linear.z * self.scaler))
       self.thrust(self.thruster_pins[3], self.base + (data.linear.z * self.scaler))
-
 
   # @sync #TODO: add blocking so if we get a joy/command msg we will ignore it
   def override(self, data):
