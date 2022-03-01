@@ -6,7 +6,11 @@
 
 ## ROV
 Start with this image onto the SD card
-[https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.3-preinstalled-server-arm64+raspi.img.xz](https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.3-preinstalled-server-arm64+raspi.img.xz)
+[https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.4-preinstalled-server-armhf+raspi.img.xz](https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.4-preinstalled-server-armhf+raspi.img.xz)
+or
+[https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.4-preinstalled-server-arm64+raspi.img.xz](
+https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.4-preinstalled-server-arm64+raspi.img.xz)
+
 
 ```
 sudo apt update
