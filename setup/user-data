@@ -5,3 +5,6 @@ users:
   plain_text_passwd: Cabri11o
 
 package_update: true
+
+power_state:
+  mode: reboot
