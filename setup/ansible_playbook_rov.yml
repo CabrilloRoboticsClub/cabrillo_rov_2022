@@ -1,0 +1,13 @@
+#
+# ansible playbook
+#
+# PREPARE ROV
+# 1) flash an sd card with "Ubuntu Server 20.04 LTS" from the Raspberry Pi Imager
+# 2) copy the cloud config file to the boot partiton
+# 3) install the sd card in the raspberry pi on the rov.
+# 4) plug the shore ethernet into the lan of a router with dhcp enabled
+# 5) plug the shore pc into the same router
+# 6) run this playbook on the shore pc
+#
+---
+
