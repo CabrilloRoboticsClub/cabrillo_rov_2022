@@ -1,6 +1,11 @@
 #
-# ansible playbook to configure rov
+# ansible playbook
 #
-# this playbook assumes that the rov starts with a ubuntu server 20.04LTS 64 bit on a raspberry pi
+# flash an sd card with "Ubuntu Server 20.04 LTS" from the Raspberry Pi Imager
+# install the sd card in the raspberry pi.
+# give the pi power and network
+# populate the inventory file wih the IP of the Pi
+# run this playbook on your local machine
 #
 ---
+
