@@ -1,1 +1,5 @@
 #cloud-config
+
+users:
+  - name: ubuntu
+  plain_text_passwd: Cabri11o
