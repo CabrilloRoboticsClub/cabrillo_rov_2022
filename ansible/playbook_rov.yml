@@ -1,11 +1,12 @@
 #
 # ansible playbook
 #
-# flash an sd card with "Ubuntu Server 20.04 LTS" from the Raspberry Pi Imager
-# install the sd card in the raspberry pi.
-# give the pi power and network
-# populate the inventory file wih the IP of the Pi
-# run this playbook on your local machine
+# PREPARE ROV
+# 1) flash an sd card with "Ubuntu Server 20.04 LTS" from the Raspberry Pi Imager
+# 2) install the sd card in the raspberry pi on the rov.
+# 3) plug the shore ethernet into the lan of a router with dhcp enabled
+# 4) plug the shore pc into the same router
+# 5) run this playbook on the shore pc
 #
 ---
 
