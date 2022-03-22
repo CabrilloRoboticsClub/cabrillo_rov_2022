@@ -1,0 +1,6 @@
+#
+# ansible playbook to configure rov
+#
+# this playbook assumes that the rov starts with a ubuntu server 20.04LTS 64 bit on a raspberry pi
+#
+---
