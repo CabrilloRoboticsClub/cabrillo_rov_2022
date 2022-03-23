@@ -1,9 +1,10 @@
 #cloud-config
 
 # set ubuntu password to funny cabrillo
-users:
-  - name: ubuntu
-    plain_text_passwd: Cabri11o
+chpasswd:
+  expire: false
+  list:
+  - ubuntu:Cabri11o
 
 # enable ssh password auth
 ssh_pwauth: true
