@@ -10,3 +10,5 @@ power_state:
   mode: reboot
 
 hostname: hydrozoa
+
+ssh_pwauth: true
