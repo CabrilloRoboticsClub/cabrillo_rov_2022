@@ -14,7 +14,7 @@ REQUIREMENTS:
 
 REQUIREMENTS:
 * Raspberry Pi (3B+ or 4)
-* 32GB or larger MicroSD Card
+* 16GB or larger MicroSD Card
 
 
 Steps to setup raspberry pi rov onboard computer from scratch
@@ -29,6 +29,6 @@ Steps to setup raspberry pi rov onboard computer from scratch
     use the sd card you just inserted
     * WRITE
     * DO NOT REMOVE SD CARD
-4) copy the `user-data` file to the boot partition on the sd card
+4) copy the `user-data` file to the boot partition on the sd card (replace the file in the destination)
 5) remove the card from the shore computer and insert it into the robot pi
 6) connect the robot to power
