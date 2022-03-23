@@ -1,13 +1,19 @@
 #cloud-config
 
+# set ubuntu password to funny cabrillo
 users:
   - name: ubuntu
     plain_text_passwd: Cabri11o
-    ssh_pwauth: true
 
+# enable ssh password auth
+ssh_pwauth: true
+
+# set hostname to hydroza
 hostname: hydrozoa
 
+# run apt update
 package_update: true
 
+# reboot when finished
 power_state:
   mode: reboot
