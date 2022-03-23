@@ -2,13 +2,12 @@
 
 users:
   - name: ubuntu
-  plain_text_passwd: Cabri11o
+    plain_text_passwd: Cabri11o
+    ssh_pwauth: true
+
+hostname: hydrozoa
 
 package_update: true
 
 power_state:
   mode: reboot
-
-hostname: hydrozoa
-
-ssh_pwauth: true
