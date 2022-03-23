@@ -8,3 +8,5 @@ package_update: true
 
 power_state:
   mode: reboot
+
+hostname: hydrozoa
