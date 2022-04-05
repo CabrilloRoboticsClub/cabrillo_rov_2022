@@ -3,3 +3,25 @@
 #
 ---
 
+- name: apt update & upgrade
+  become: yes
+  hosts: hydrozoa
+  tags: apt-setup
+  tasks:
+  - name: apt update
+    ansible.builtin.apt:
+      update_cache: yes
+  - name: apt upgrade
+    ansible.builtin.apt:
+      upgrade: yes
+
+- name: apt install depends
+  become: yes
+  hosts: hydrozoa
+  tags: apt-depends
+  tasks:
+  - name: apt install depends
+    ansible.builtin.apt:
+      name:
+      - net-tools
+      - ipython3
