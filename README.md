@@ -1,6 +1,6 @@
 ## Cabrillo College's Robotics Club's ROV Repo for the MATE ROV competition
 
-### Dubbed earle-s1 after Dr. Sylvia Earle
+### Dubbed hydrozoa
 
 ![frame__48cm Drawing](https://user-images.githubusercontent.com/27081199/120859450-14573780-c539-11eb-9be2-f1c2092adf8b.jpg)
 
@@ -24,7 +24,16 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt update
 sudo apt install ros-noetic-desktop-full
-sudo apt install ros-noetic-robot-pose-ekf ros-noetic-robot-localization ros-noetic-imu-filter-madgwick python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential ros-noetic-joy ros-noetic-joystick-drivers
+sudo apt install \
+ros-noetic-robot-pose-ekf \
+ros-noetic-robot-localization \
+ros-noetic-imu-filter-madgwick \
+python3-rosdep python3-rosinstall \
+python3-rosinstall-generator \
+python3-wstool \
+build-essential \
+ros-noetic-joy \
+ros-noetic-joystick-drivers
 
 crontab -l | { cat; echo "@reboot /home/ubuntu/cabrillo_rov/misc/rov_startup.sh >/tmp/scriptLog"; } | crontab -
 
