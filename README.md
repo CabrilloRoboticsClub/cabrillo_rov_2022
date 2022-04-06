@@ -4,6 +4,10 @@
 
 ![frame__48cm Drawing](https://user-images.githubusercontent.com/27081199/120859450-14573780-c539-11eb-9be2-f1c2092adf8b.jpg)
 
+## [setup](setup/)
+
+set the setup readme for setup. anything below is outdated
+
 ## ROV
 Start with this image onto the SD card
 [https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.4-preinstalled-server-armhf+raspi.img.xz](https://cdimage.ubuntu.com/releases/20.04.3/release/ubuntu-20.04.4-preinstalled-server-armhf+raspi.img.xz)
