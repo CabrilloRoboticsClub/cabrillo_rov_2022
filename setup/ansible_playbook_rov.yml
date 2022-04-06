@@ -33,6 +33,7 @@
     ansible.builtin.pip:
       name:
       - adafruit-circuitpython-servokit
+      - adafruit-circuitpython-lsm6ds
 
 - name: git
   hosts: hydroza
@@ -76,6 +77,8 @@
       - build-essential
       - ros-noetic-joy
       - ros-noetic-joystick-drivers
+      - ros-noetic-robot-localization
+      - ros-noetic-usb-cam
 
 - name: startup scripts
   hosts: hydrozoa
@@ -84,4 +87,20 @@
     ansible.builtin.cron:
       name: rov_startup
       special_time: reboot
-      job: /home/ubuntu/cabrillo_rov/misc/rov_startup.sh
+      job: /home/ubuntu/cabrillo_rov/misc/rov_startup.sh >/tmp/scriptLog
+
+- name: hardware config
+  hosts: hydrozoa
+  become: yes
+  tasks:
+  - name: enable i2c
+    ansible.builtin.lineinfile:
+      path: /etc/udev/rules.d/99-com.rules
+      line: SUBSYSTEM=="ic2-dev", GROUP="i2c", MODE="0660"
+  - name: i2c device permissions
+    ansible.builtin.file:
+      path: /dev/i2c-1
+      group: i2c
+      mode: g+rw
+
+  
