@@ -1,3 +1,9 @@
+#
+# ansible software setup playbook
+# update the software for the rov
+#
+# an internet connection is required for this playbook to run
+#
 ---
 - name: Hydrozoa ROV software prep
   become: yes
@@ -54,6 +60,6 @@
       - python3-wstool
       - build-essential
       - ros-noetic-joy
-      - ros-noetic-joystick-drivers
+      #- ros-noetic-joystick-drivers
       - ros-noetic-robot-localization
       - ros-noetic-usb-cam
