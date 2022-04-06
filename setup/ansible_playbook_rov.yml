@@ -30,16 +30,17 @@
   - name: pip install depends
     ansible.builtin.pip:
       name:
+      - pigpio
       - adafruit-circuitpython-servokit
       - adafruit-circuitpython-lsm6ds
-  
-  - name: add ros apt repo
-    ansible.builtin.apt_repository:
-      repo: deb http://packages.ros.org/ros/ubuntu focal main
 
   - name: add ros apt repo key
     ansible.builtin.apt_key:
       url: https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc
+
+  - name: add ros apt repo
+    ansible.builtin.apt_repository:
+      repo: deb http://packages.ros.org/ros/ubuntu focal main
 
   - name: apt install ros (THIS MAY TAKE A WHILE)
     ansible.builtin.apt:
@@ -66,7 +67,7 @@
   hosts: hydrozoa
   tags: git-repo
   tasks:
-  
+
   - name: git clone or pull cabrillo_rov
     ansible.builtin.git:
       dest: /home/pi/cabrillo_rov
