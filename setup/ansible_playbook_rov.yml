@@ -24,6 +24,11 @@
   become: yes
   tasks:
 
+  - name: rosdep init
+    ansible.builtin.shell:
+      chdir: /home/{{ansible_user}}/cabrillo_rov
+      cmd: rosdep init && rosdep update
+
   - name: enable i2c
     ansible.builtin.lineinfile:
       path: /etc/udev/rules.d/99-com.rules
