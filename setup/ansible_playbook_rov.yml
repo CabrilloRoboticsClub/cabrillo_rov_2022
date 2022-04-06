@@ -102,4 +102,9 @@
       group: i2c
       mode: g+rw
 
-  
+- name: reboot to apply hardware config changes
+  hosts: hydrozoa
+  become: yes
+  tasks:
+  - name: reboot hydrozoa
+    ansible.builtin.reboot
