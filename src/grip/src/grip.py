@@ -20,7 +20,7 @@ class Grip:
 
   def move(self, data, which_gripper=0):
     #self.grippers(self.gripper_pins[which_gripper], 1500 + (data * self.max_from_base))
-    servos.servo[self.gripper_pins[which_gripper]].angle = data * self.angle
+    servos.servo[self.gripper_pins[which_gripper]].angle = self.angle + (data * self.angle)
     
 
   # Initializes everything
