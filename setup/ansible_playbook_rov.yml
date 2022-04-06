@@ -4,6 +4,7 @@
 ---
 
 - name: Hydrozoa ROV software
+  hosts: hydrozoa
   import_playbook: tasks/software.yml
 
 - name: hydrozoa rov download cabrillo_rov git repo
@@ -13,7 +14,7 @@
 
   - name: git clone or pull cabrillo_rov
     ansible.builtin.git:
-      dest: /home/ubuntu/cabrillo_rov
+      dest: /home/{{ansible_user}}/cabrillo_rov
       repo: https://github.com/cabrillorobotics/cabrillo_rov.git
       track_submodules: yes
 
@@ -26,6 +27,7 @@
   - name: enable i2c
     ansible.builtin.lineinfile:
       path: /etc/udev/rules.d/99-com.rules
+      create: yes
       line: SUBSYSTEM=="ic2-dev", GROUP="i2c", MODE="0660"
 
   - name: add pigpio service
@@ -46,11 +48,11 @@
     ansible.builtin.cron:
       name: ansible_playbook_rov_startup.yml
       special_time: reboot
-      job: ansible-playbook /home/ubuntu/cabrillo_rov/setup/ansible_playbook_rov_startup.yml
+      job: ansible-playbook /home/{{ansible_user}}/cabrillo_rov/setup/ansible_playbook_rov_startup.yml
 
   - name: add ros setup to bashrc
     ansible.builtin.lineinfile:
-      path: /home/ubuntu/.bashrc
+      path: /home/{{ansible_user}}/.bashrc
       line: source /opt/ros/noetic/setup.bash
 
   - name: reboot hydrozoa
