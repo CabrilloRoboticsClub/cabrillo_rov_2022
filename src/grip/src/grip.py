@@ -5,7 +5,6 @@ import rospy
 from std_msgs.msg import Float32
 from dynamic_reconfigure.server import Server  # allows us to change consts on the fly
 from adafruit_servokit import ServoKit
-#import pigpio
 
 
 class Grip:
@@ -19,19 +18,16 @@ class Grip:
     self.max_from_base = 500  # max_forward = 2000, max_backward = 1000
 
   def move(self, data, which_gripper=0):
-    #self.grippers(self.gripper_pins[which_gripper], 1500 + (data * self.max_from_base))
     servos.servo[self.gripper_pins[which_gripper]].angle = self.angle + (data * self.angle)
     
 
   # Initializes everything
   def run(self):
-    #pi = pigpio.pi()
     servos = ServoKit(channels = 16)
     servos.servo[self.gripper_pins[0]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
     servos.servo[self.gripper_pins[1]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
-    #pi.set_servo_pulsewidth(self.gripper_pins[0], 1500)
-    #pi.set_servo_pulsewidth(self.gripper_pins[1], 1500)
-    #self.grippers = pi.set_servo_pulsewidth
+    servos.servo[0].angle = self.angle
+    servos.servo[1].angle = self.angle
     rospy.Subscriber("cmd_gripper1", Float32, self.move, 0)
     rospy.Subscriber("cmd_gripper2", Float32, self.move, 1)
     rospy.spin()

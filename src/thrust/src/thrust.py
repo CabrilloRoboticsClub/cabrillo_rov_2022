@@ -7,7 +7,6 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import Bool
 from dynamic_reconfigure.server import Server  # allows us to change consts on the fly
 from adafruit_servokit import ServoKit
-#import pigpio
 
 
 class Thrust:
@@ -19,8 +18,7 @@ class Thrust:
     self.last = [self.base] * 4
     self.thrust = None
     self.overridden = False
-    self.scaler = 1.0 / 3.0
-    #self.scaler = self.max_from_base / 3.0  # @TODO dynamic reconfigure this
+    self.scaler = 1.0 / 3.0 # @TODO dynamic reconfigure this
 
   # @sync #TODO: add blocking so if we get a joy/command msg we will ignore it
   def move(self, data):
@@ -37,33 +35,27 @@ class Thrust:
       servos.continuous_servo[self.thruster_pins[1]].throttle = (data.linear.x + data.angular.z) * self.scaler
       servos.continuous_servo[self.thruster_pins[2]].throttle = data.linear.z * self.scaler
       servos.continuous_servo[self.thruster_pins[3]].throttle = data.linear.z * self.scaler
-      #self.thrust(self.thruster_pins[0], self.base + ((data.linear.x - data.angular.z) * self.scaler))
-      #self.thrust(self.thruster_pins[1], self.base + ((data.linear.x + data.angular.z) * self.scaler))
-      #self.thrust(self.thruster_pins[2], self.base + (data.linear.z * self.scaler))
-      #self.thrust(self.thruster_pins[3], self.base + (data.linear.z * self.scaler))
 
   # @sync #TODO: add blocking so if we get a joy/command msg we will ignore it
   def override(self, data):
     self.overridden = data.data
     if data.data:
-      #self.thrust(self.thruster_pins[0], self.base)
-      #self.thrust(self.thruster_pins[1], self.base)
-      #self.thrust(self.thruster_pins[2], self.base)
-      #self.thrust(self.thruster_pins[3], self.base)
+      servos.continuous_servo[self.thruster_pins[0]].throttle = 0
+      servos.continuous_servo[self.thruster_pins[1]].throttle = 0
+      servos.continuous_servo[self.thruster_pins[2]].throttle = 0
+      servos.continuous_servo[self.thruster_pins[3]].throttle = 0
 
   # Initializes everything
   def run(self):
-    #pi = pigpio.pi()
     servos = ServoKit(channels = 16)
     servos.servo[self.thruster_pins[0]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
     servos.servo[self.thruster_pins[1]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
     servos.servo[self.thruster_pins[2]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
     servos.servo[self.thruster_pins[3]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
-    #pi.set_servo_pulsewidth(self.thruster_pins[0], self.base)
-    #pi.set_servo_pulsewidth(self.thruster_pins[1], self.base)
-    #pi.set_servo_pulsewidth(self.thruster_pins[2], self.base)
-    #pi.set_servo_pulsewidth(self.thruster_pins[3], self.base)
-    #self.thrust = pi.set_servo_pulsewidth
+    servos.continuous_servo[self.thruster_pins[0]].throttle = 0
+    servos.continuous_servo[self.thruster_pins[1]].throttle = 0
+    servos.continuous_servo[self.thruster_pins[2]].throttle = 0
+    servos.continuous_servo[self.thruster_pins[3]].throttle = 0
     rospy.Subscriber("cmd_vel", Twist, self.move)
     rospy.Subscriber("override", Bool, self.override)
     rospy.spin()
