@@ -4,7 +4,7 @@ rov:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
 
-shore:
-  hosts:
-    ciaran-thinkpad:
-      ansible_user: ciaran
+#shore:
+#  hosts:
+#    ciaran-thinkpad:
+#      ansible_user: ciaran
