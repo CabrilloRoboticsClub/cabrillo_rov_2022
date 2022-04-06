@@ -32,4 +32,6 @@ Steps to setup raspberry pi rov onboard computer from scratch
 4) copy the `user-data` file to the boot partition on the sd card (replace the file in the destination)
 5) remove the card from the shore computer and insert it into the robot pi
 6) connect the robot to power
-7) 
+7) wait untill `ping hydrozoa` returns a reply
+8) from inside the cabrillo_rov repo folder on the shore pc run the ansible playbook ``` ansible-playbook -i setup/ansible_inventory.yml setup/ansible_playbook_rov.yml```
+
