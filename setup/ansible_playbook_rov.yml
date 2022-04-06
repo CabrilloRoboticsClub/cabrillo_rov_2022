@@ -76,3 +76,12 @@
       - build-essential
       - ros-noetic-joy
       - ros-noetic-joystick-drivers
+
+- name: startup scripts
+  hosts: hydrozoa
+  tasks:
+  - name: add startup script to crontab
+    ansible.builtin.cron:
+      name: rov_startup
+      special_time: reboot
+      job: /home/ubuntu/cabrillo_rov/misc/rov_startup.sh
