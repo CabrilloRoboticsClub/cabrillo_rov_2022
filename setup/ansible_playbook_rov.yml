@@ -35,7 +35,7 @@
       - adafruit-circuitpython-lsm6ds
 
 - name: git
-  hosts: hydroza
+  hosts: hydrozoa
   tasks:
   - name: git clone cabrillo_rov
     ansible.builtin.git:
@@ -107,4 +107,4 @@
   become: yes
   tasks:
   - name: reboot hydrozoa
-    ansible.builtin.reboot
+    ansible.builtin.reboot:
