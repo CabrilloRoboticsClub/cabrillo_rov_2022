@@ -1,7 +1,10 @@
 rov:
   hosts:
-    hydrozoa
+    hydrozoa:
+      ansible_user: ubuntu
+      ansible_ssh_pass: Cabri11o
 
 shore:
   hosts:
-    ciaran-thinkpad
+    ciaran-thinkpad:
+      ansible_user: ciaran
