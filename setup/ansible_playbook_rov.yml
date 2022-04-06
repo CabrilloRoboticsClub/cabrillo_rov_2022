@@ -3,82 +3,19 @@
 #
 ---
 
-- name: Hydrozoa ROV software prep
-  become: yes
-  hosts: hydrozoa
-  tags: apt-setup
-  tasks:
+- name: Hydrozoa ROV software
+  import_playbook: tasks/software.yml
 
-  - name: apt update
-    ansible.builtin.apt:
-      update_cache: yes
-      allow_unauthenticated: yes
-
-  - name: apt upgrade
-    ansible.builtin.apt:
-      upgrade: yes
-      allow_unauthenticated: yes
-
-  - name: apt install depends
-    ansible.builtin.apt:
-      name:
-      - net-tools
-      - ipython3
-      - python3-pip
-      - python3-smbus
-
-  - name: pip install depends
-    ansible.builtin.pip:
-      name:
-      - pigpio
-      - adafruit-circuitpython-servokit
-      - adafruit-circuitpython-lsm6ds
-
-  - name: add ros apt repo key
-    ansible.builtin.apt_key:
-      url: https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc
-
-  - name: add ros apt repo
-    ansible.builtin.apt_repository:
-      repo: deb http://packages.ros.org/ros/ubuntu focal main
-
-  - name: apt install ros (THIS MAY TAKE A WHILE)
-    ansible.builtin.apt:
-      name:
-      - ros-noetic-desktop-full
-
-  - name: apt install ros extensions
-    ansible.builtin.apt:
-      name:
-      - ros-noetic-robot-pose-ekf
-      - ros-noetic-robot-localization
-      - ros-noetic-imu-filter-madgwick
-      - python3-rosdep
-      - python3-rosinstall-generator
-      - python3-wstool
-      - build-essential
-      - ros-noetic-joy
-      - ros-noetic-joystick-drivers
-      - ros-noetic-robot-localization
-      - ros-noetic-usb-cam
-
-
-- name: hydrozoa rov install cabrillo_rov software
+- name: hydrozoa rov download cabrillo_rov git repo
   hosts: hydrozoa
   tags: git-repo
   tasks:
 
   - name: git clone or pull cabrillo_rov
     ansible.builtin.git:
-      dest: /home/pi/cabrillo_rov
+      dest: /home/ubuntu/cabrillo_rov
       repo: https://github.com/cabrillorobotics/cabrillo_rov.git
       track_submodules: yes
-
-  - name: add startup script to crontab
-    ansible.builtin.cron:
-      name: rov_startup
-      special_time: reboot
-      job: /home/ubuntu/cabrillo_rov/misc/rov_startup.sh >/tmp/scriptLog
 
 
 - name: hydrozoa rov pi hardware config
@@ -91,11 +28,31 @@
       path: /etc/udev/rules.d/99-com.rules
       line: SUBSYSTEM=="ic2-dev", GROUP="i2c", MODE="0660"
 
-  - name: i2c device permissions
-    ansible.builtin.file:
-      path: /dev/i2c-1
-      group: i2c
-      mode: g+rw
+  - name: add pigpio service
+    ansible.builtin.blockinfile:
+      path: /lib/systemd/system/pigpiod.service
+      create: yes
+      block: |
+        [Unit]
+        Description=Daemon required to control GPIO pins via pigpio
+        [Service]
+        ExecStart=/usr/local/bin/pigpiod
+        ExecStop=/bin/systemctl kill -s SIGKILL pigpiod
+        Type=forking
+        [Install]
+        WantedBy=multi-user.target
+
+  - name: add startup playbook to root crontab
+    ansible.builtin.cron:
+      name: ansible_playbook_rov_startup.yml
+      special_time: reboot
+      job: ansible-playbook /home/ubuntu/cabrillo_rov/setup/ansible_playbook_rov_startup.yml
+
+  - name: add ros setup to bashrc
+    ansible.builtin.lineinfile:
+      path: /home/ubuntu/.bashrc
+      line: source /opt/ros/noetic/setup.bash
 
   - name: reboot hydrozoa
     ansible.builtin.reboot:
+
