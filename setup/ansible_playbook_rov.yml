@@ -15,7 +15,7 @@
     ansible.builtin.apt:
       upgrade: yes
 
-- name: apt install depends
+- name: install dependancies
   become: yes
   hosts: hydrozoa
   tags: apt-depends
@@ -25,6 +25,23 @@
       name:
       - net-tools
       - ipython3
+      - python3-pip
+      - python-smbus
+      - raspi-config
+      - rpi-update
+  - name: install pip depends
+    ansible.builtin.pip:
+      name:
+      - adafruit-circuitpython-servokit
+
+- name: git
+  hosts: hydroza
+  tasks:
+  - name: git clone cabrillo_rov
+    ansible.builtin.git:
+      dest: /home/pi/cabrillo_rov
+      repo: https://github.com/cabrillorobotics/cabrillo_rov.git
+      track_submodules: yes
 
 - name: apt repo and key
   become: yes
