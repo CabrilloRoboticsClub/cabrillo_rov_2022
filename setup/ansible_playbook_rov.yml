@@ -27,6 +27,7 @@
     ansible.builtin.shell:
       chdir: /home/{{ansible_user}}/cabrillo_rov
       cmd: rosdep init && rosdep update
+      ignore_errors: yes
 
   - name: enable i2c
     ansible.builtin.lineinfile:
