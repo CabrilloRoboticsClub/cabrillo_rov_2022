@@ -32,8 +32,10 @@
     ansible.builtin.pip:
       name:
       - pigpio
+      - adafruit-circuitpython-pca9685
       - adafruit-circuitpython-servokit
       - adafruit-circuitpython-lsm6ds
+      - adafruit-circuitpython-mpu6050
 
   - name: add ros apt repo key
     ansible.builtin.apt_key:
