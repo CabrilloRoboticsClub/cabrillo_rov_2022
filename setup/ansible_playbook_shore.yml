@@ -4,5 +4,4 @@
 ---
 
 - name: Hydrozoa ROV software
-  hosts: localhost
-  import_tasks: tasks/software.yml
+  import_playbook: tasks/software.yml
