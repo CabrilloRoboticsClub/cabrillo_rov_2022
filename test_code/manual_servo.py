@@ -45,3 +45,5 @@ thrust3.angle = 90
 thrust4.angle = 90
 #thrust4.fraction = 1
 '''
+
+thrust1.angle = input()
