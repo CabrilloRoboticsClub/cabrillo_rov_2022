@@ -32,11 +32,8 @@ thrust3.fraction = 0
 thrust4.angle = 180
 thrust4.fraction = 0
 
-time.sleep(3)
-
 # this should start them moving
-
-thrust1.angle = 90
+'''thrust1.angle = 90
 #thrust1.fraction = 1
 
 thrust2.angle = 90
@@ -47,3 +44,4 @@ thrust3.angle = 90
 
 thrust4.angle = 90
 #thrust4.fraction = 1
+'''
