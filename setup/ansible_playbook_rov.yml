@@ -52,7 +52,7 @@
     ansible.builtin.cron:
       name: ansible_playbook_rov_startup.yml
       special_time: reboot
-      job: ansible-playbook /home/{{ansible_user}}/cabrillo_rov/setup/ansible_playbook_rov_startup.yml
+      job: source /home/ubuntu/cabrillo_rov/misc/rov_startup.sh
 
   - name: add ros setup to bashrc
     ansible.builtin.lineinfile:
