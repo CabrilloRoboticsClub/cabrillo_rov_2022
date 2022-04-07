@@ -1,8 +1,9 @@
 <launch>
   <node name="thrust" pkg="thrust" type="thrust.py"></node>
   <node name="sensors" pkg="sensors" type="sensors.py"></node>
-  <node name="grip" pkg="grip" type="grip.py"></node>
+<!--  <node name="grip" pkg="grip" type="grip.py"></node> -->
   
+<!--
   <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
     <param name="output_frame" value="odom"/>
     <param name="freq" value="10.0"/>
@@ -13,6 +14,7 @@
     <param name="debug" value="false"/>
     <param name="self_diagnose" value="false"/>
   </node>
+-->
 
 <!--  
   <node name="usb_cam0" pkg="usb_cam" type="usb_cam_node" output="screen" >
