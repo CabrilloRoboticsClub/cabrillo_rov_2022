@@ -35,14 +35,14 @@ thrust4.fraction = 0
 
 # this should start them moving
 
-thrust1.angle = 180
-thrust1.fraction = 1
+thrust1.angle = 200
+#thrust1.fraction = 1
 
-thrust2.angle = 180
-thrust2.fraction = 1
+thrust2.angle = 200
+#thrust2.fraction = 1
 
-thrust3.angle = 180
-thrust3.fraction = 1
+thrust3.angle = 200
+#thrust3.fraction = 1
 
-thrust4.angle = 180
-thrust4.fraction = 1
+thrust4.angle = 200
+#thrust4.fraction = 1
