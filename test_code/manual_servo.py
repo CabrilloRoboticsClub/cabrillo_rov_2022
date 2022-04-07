@@ -33,6 +33,7 @@ thrust4.angle = 180
 thrust4.fraction = 0
 
 # that section above works and I get the 2 init beeps
+
 time.sleep(5)
 
 thrust1.fraction = 1
@@ -45,7 +46,3 @@ thrust1.angle = 150
 thrust2.angle = 150
 thrust3.angle = 150
 thrust4.angle = 150
-
-thrust1.angle = int(input())
-
-# when I try to set the angle to something 
