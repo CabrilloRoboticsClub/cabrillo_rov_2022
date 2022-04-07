@@ -5,3 +5,16 @@
 
 - name: Hydrozoa ROV software
   import_playbook: tasks/software.yml
+
+
+- name: hydrozoa rov download cabrillo_rov git repo
+  hosts: shore
+  tags: git-repo
+  tasks:
+
+  - name: git clone or pull cabrillo_rov
+    ansible.builtin.git:
+      dest: /home/{{ansible_user}}/cabrillo_rov
+      repo: https://github.com/cabrillorobotics/cabrillo_rov.git
+      track_submodules: yes
+
