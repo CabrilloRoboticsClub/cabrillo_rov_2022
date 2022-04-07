@@ -55,11 +55,11 @@
         [Install]
         WantedBy=multi-user.target
 
-  - name: add startup playbook to root crontab
+  - name: add startup script to root crontab
     ansible.builtin.cron:
-      name: ansible_playbook_rov_startup.yml
+      name: rov startup script
       special_time: reboot
-      job: source /home/ubuntu/cabrillo_rov/misc/rov_startup.sh
+      job: /home/ubuntu/cabrillo_rov/misc/rov_startup.sh > /tmp/rov_startup_log1 2> /tmp/rov_startup_log2
 
   - name: add ros setup to bashrc
     ansible.builtin.lineinfile:
