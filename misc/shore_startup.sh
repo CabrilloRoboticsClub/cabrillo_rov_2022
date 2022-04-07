@@ -7,6 +7,6 @@ git pull    # Comment out for quicker rov startup
 catkin_make # Comment out for quicker rov startup
 source ./devel/setup.bash
 export ROS_MASTER_URI=http://$(getent hosts hydrozoa | cut -d " " -f1):11311
-export ROS_HOSTNAME=$HOST
+export ROS_HOSTNAME=$HOSTNAME
 sleep 1
 roslaunch ./launch/shore.launch
