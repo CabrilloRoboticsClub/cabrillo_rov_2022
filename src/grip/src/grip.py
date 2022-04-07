@@ -2,6 +2,9 @@
 
 import rospkg
 import rospy
+import board
+import busio
+import adafruit_pca9685
 from std_msgs.msg import Float32
 from dynamic_reconfigure.server import Server  # allows us to change consts on the fly
 from adafruit_servokit import ServoKit

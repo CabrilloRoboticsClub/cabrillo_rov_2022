@@ -3,6 +3,9 @@
 import math
 import rospkg
 import rospy
+import board
+import busio
+import adafruit_pca9685
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Bool
 from dynamic_reconfigure.server import Server  # allows us to change consts on the fly
