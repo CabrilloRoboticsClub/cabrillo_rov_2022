@@ -7,7 +7,7 @@
   import_playbook: tasks/software.yml
 
 - name: hydrozoa rov download cabrillo_rov git repo
-  hosts: hydrozoa
+  hosts: all
   tags: git-repo
   tasks:
 
@@ -22,6 +22,12 @@
   hosts: hydrozoa
   become: yes
   tasks:
+
+  - name: add ubuntu to i2c group
+    ansible.builtin.user:
+      append: yes
+      groups: i2c
+      name: ubuntu
 
   - name: rosdep init
     ansible.builtin.shell:
