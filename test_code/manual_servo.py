@@ -46,3 +46,5 @@ thrust1.angle = 150
 thrust2.angle = 150
 thrust3.angle = 150
 thrust4.angle = 150
+
+time.sleep(30)
