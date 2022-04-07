@@ -35,6 +35,7 @@
       - adafruit-circuitpython-pca9685
       - adafruit-circuitpython-servokit
       - adafruit-circuitpython-lsm6ds
+      - adafruit-circuitpython-lis3mdl
       - adafruit-circuitpython-mpu6050
 
   - name: add ros apt repo key
