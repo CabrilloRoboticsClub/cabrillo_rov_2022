@@ -13,7 +13,8 @@
     <param name="debug" value="false"/>
     <param name="self_diagnose" value="false"/>
   </node>
-  
+
+<!--  
   <node name="usb_cam0" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/v4l/by-id/usb-HBVCAM_CAMERA_HBVCAM_CAMERA-video-index0" />
     <param name="image_width" value="640" />
@@ -33,5 +34,6 @@
     <param name="io_method" value="mmap"/>
     <param name="camera_name" value="cam_1" />
   </node>
+-->
 
 </launch>
