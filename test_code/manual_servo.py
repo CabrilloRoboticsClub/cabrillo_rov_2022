@@ -48,3 +48,6 @@ claw4 = servo.Servo(pca.channels[7])
 # time.sleep(30)
 
 claw1.angle = 90
+claw2.angle = 90
+claw3.angle = 90
+claw4.angle = 90
