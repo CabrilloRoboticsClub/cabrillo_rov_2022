@@ -4,7 +4,6 @@
 ---
 
 - name: Hydrozoa ROV software
-  hosts: hydrozoa
   import_playbook: tasks/software.yml
 
 - name: hydrozoa rov download cabrillo_rov git repo
