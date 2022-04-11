@@ -8,6 +8,8 @@ pca = PCA9685(busio.I2C(SCL, SDA))
 
 pca.frequency = 60
 
+# esc valid input raneg 1100 to 1900
+# using 100 dif for testing
 thrust1 = servo.Servo(pca.channels[0], min_pulse=1400, max_pulse=1600)
 thrust2 = servo.Servo(pca.channels[1], min_pulse=1400, max_pulse=1600)
 thrust3 = servo.Servo(pca.channels[2], min_pulse=1400, max_pulse=1600)
