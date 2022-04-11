@@ -8,10 +8,10 @@ pca = PCA9685(busio.I2C(SCL, SDA))
 
 pca.frequency = 60
 
-thrust1 = servo.Servo(pca.channels[0], min_pulse=100, max_pulse=2000)
-thrust2 = servo.Servo(pca.channels[1], min_pulse=100, max_pulse=2000)
-thrust3 = servo.Servo(pca.channels[2], min_pulse=100, max_pulse=2000)
-thrust4 = servo.Servo(pca.channels[3], min_pulse=100, max_pulse=2000)
+thrust1 = servo.Servo(pca.channels[0], min_pulse=1400, max_pulse=1600)
+thrust2 = servo.Servo(pca.channels[1], min_pulse=1400, max_pulse=1600)
+thrust3 = servo.Servo(pca.channels[2], min_pulse=1400, max_pulse=1600)
+thrust4 = servo.Servo(pca.channels[3], min_pulse=1400, max_pulse=1600)
 
 claw1 = servo.Servo(pca.channels[4])
 claw2 = servo.Servo(pca.channels[5])
