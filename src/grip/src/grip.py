@@ -13,7 +13,12 @@ from adafruit_servokit import ServoKit
 class Grip:
   def __init__(self):
     rospy.init_node('Grip')
-    self.gripper_pins = [4, 5]
+    self.gripper_pins = [4, 5, 14, 15]
+    # 4 front vertical
+    # 5 front horizontal
+    # 14 rear horizontal
+    # 15 rear vertical
+    
     self.base = 1500
     self.angle = 90
     self.grippers = None
