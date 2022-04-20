@@ -6,6 +6,9 @@ rov:
 
 shore:
   hosts:
-    localhost:
+    ciaran-thinkpad:
       ansible_user: ciaran
       ansible_connection: local
+    ubuntu:
+      ansible_user: ubuntu
+      ansible_ssh_pass: Cabri11o
