@@ -18,10 +18,14 @@ class Grip:
     # 5 front horizontal
     # 14 rear horizontal
     # 15 rear vertical
-    
-    self.base = 1500
-    self.angle = 90
-    self.grippers = None
+
+    self.actuation_range = 180
+    self.pwm_min = 1000
+    self.pwm_max = 2000
+
+    #self.base = 1500
+    #self.angle = 90
+    #self.grippers = None
     # 500-2500 if we want 180 deg, 1000-2000 for 90 deg
     self.max_from_base = 500  # max_forward = 2000, max_backward = 1000
 
@@ -31,11 +35,29 @@ class Grip:
 
   # Initializes everything
   def run(self):
-    servos = ServoKit(channels = 16)
-    servos.servo[self.gripper_pins[0]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
-    servos.servo[self.gripper_pins[1]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
-    servos.servo[0].angle = self.angle
-    servos.servo[1].angle = self.angle
+    # instanciate servokit for the 16 channel servo board
+    kit = ServoKit(channels = 16)
+
+    # front vertical
+    kit.servo[self.gripper_pins[0]].actuation_range = self.actuation_range
+    kit.servo[self.gripper_pins[0]].set_pulse_width_range(self.pwm_min, self.pwm_max)
+
+    # front horizontal
+    kit.servo[self.gripper_pins[1]].actuation_range = self.actuation_range
+    kit.servo[self.gripper_pins[1]].set_pulse_width_range(self.pwm_min, self.pwm_max)
+
+    # rear horizontal
+    kit.servo[self.gripper_pins[2]].actuation_range = self.actuation_range
+    kit.servo[self.gripper_pins[2]].set_pulse_width_range(self.pwm_min, self.pwm_max)
+
+    # rear vertical
+    kit.servo[self.gripper_pins[3]].actuation_range = self.actuation_range
+    kit.servo[self.gripper_pins[3]].set_pulse_width_range(self.pwm_min, self.pwm_max)
+
+    #servos.servo[self.gripper_pins[0]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
+    #servos.servo[self.gripper_pins[1]].set_pulse_width_range(self.base - self.max_from_base, self.base + self.max_from_base)
+    #servos.servo[0].angle = self.angle
+    #servos.servo[1].angle = self.angle
     rospy.Subscriber("cmd_gripper1", Float32, self.move, 0)
     rospy.Subscriber("cmd_gripper2", Float32, self.move, 1)
     rospy.spin()
