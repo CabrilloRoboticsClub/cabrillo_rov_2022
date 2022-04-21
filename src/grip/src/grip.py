@@ -20,10 +20,10 @@ class Grip:
     # 15 rear vertical
 
     # pwm value at claw fully closed
-    self.pwm_min = 1250
+    self.pwm_min = 500
     # pwm value at claw fullly open
     self.pwm_max = 1500
-    # pwm value at claw fully open
+    # pwm value to start at
     self.pwm_base = 1500
 
     # angle value for claw closed
