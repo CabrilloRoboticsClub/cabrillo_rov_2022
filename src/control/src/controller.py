@@ -58,12 +58,12 @@ class Controller:
       move_gripper = False
       if data.buttons[button]:  # gripper right open button 4, left 5
         # ensure its 0/positive
-        self.last[trigger] = self.last[trigger] + gripper_scaler if self.last[trigger] + gripper_scaler > 1 else 1
+        self.last[trigger] = self.last[trigger] + gripper_scaler if self.last[trigger] + gripper_scaler > 0 else 0
         move_gripper = True
       elif data.axes[trigger] != 1:
         pressed = 1 - data.axes[trigger]  # 0 not pressed, 2 fully pressed
         self.last[trigger] = self.last[trigger] - gripper_scaler * pressed if self.last[trigger] - gripper_scaler * \
-                                                                              pressed <= 0 else 0  # ensure its 0->1
+                                                                              pressed <= 1 else 1  # ensure its 0->1
         move_gripper = True
       if move_gripper and trigger == 2:
         self.gripper2_cmd.publish(self.last[trigger])
