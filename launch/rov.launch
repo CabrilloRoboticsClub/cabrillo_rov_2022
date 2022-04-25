@@ -1,7 +1,7 @@
 <launch>
   <node name="thrust" pkg="thrust" type="thrust.py"></node>
   <node name="sensors" pkg="sensors" type="sensors.py"></node>
-<!--  <node name="grip" pkg="grip" type="grip.py"></node> -->
+  <node name="grip" pkg="grip" type="grip.py"></node>
   
 <!--
   <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
