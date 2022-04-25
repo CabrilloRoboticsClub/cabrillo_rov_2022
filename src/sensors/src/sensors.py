@@ -46,7 +46,7 @@ class Sensors:
     self.imu_publisher.publish(imu)
 
   def read_mag(self, _):
-    mag_f = MagneticField(magnetic_field=Vector3(*self.mpu.magnetic))
+    mag_f = MagneticField()#magnetic_field=Vector3(*self.mpu.magnetic))
     mag_f.header.frame_id = self.frame
     mag_f.header.stamp = rospy.Time.now()
     self.mag_publisher.publish(mag_f)
