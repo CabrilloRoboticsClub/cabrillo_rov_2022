@@ -57,6 +57,7 @@
 
   - name: add startup script to root crontab
     ansible.builtin.cron:
+      user: ubuntu
       name: rov startup script
       special_time: reboot
       job: /home/ubuntu/cabrillo_rov/misc/rov_startup.sh > /tmp/rov_startup_log1 2> /tmp/rov_startup_log2
