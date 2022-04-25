@@ -24,7 +24,7 @@ class Sensors:
     rospy.init_node('sensors')
     self.frame = "odom"
     i2c = board.I2C()  # uses board.SCL and board.SDA
-    self.mag_sensor = adafruit_lis3mdl.LIS3MDL(i2c)
+    # self.mag_sensor = adafruit_lis3mdl.LIS3MDL(i2c)
     self.mpu = LSM6DS33(i2c)
     # self.mpu = adafruit_mpu6050.MPU6050(i2c)  # Other Sensor not currently installed
     self.imu_publisher = rospy.Publisher('/imu_data', Imu, queue_size=10)
@@ -46,7 +46,7 @@ class Sensors:
     self.imu_publisher.publish(imu)
 
   def read_mag(self, _):
-    mag_f = MagneticField(magnetic_field=Vector3(*self.mag_sensor.magnetic))
+    mag_f = MagneticField(magnetic_field=Vector3(*self.mpu.magnetic))
     mag_f.header.frame_id = self.frame
     mag_f.header.stamp = rospy.Time.now()
     self.mag_publisher.publish(mag_f)
