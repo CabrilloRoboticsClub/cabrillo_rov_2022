@@ -13,6 +13,10 @@ from adafruit_servokit import ServoKit
 class Grip:
   def __init__(self):
     rospy.init_node('Grip')
+
+    # create class member variabe for the kit instance
+    self.kit = None
+
     self.gripper_pins = [4, 5, 14, 15]
     # 4 front vertical
     # 5 front horizontal
@@ -31,26 +35,26 @@ class Grip:
     # angle value for claw open
     self.angle_max = 100
     # angle value at claw halfway open
-    self.angle_base = 90
+    self.angle_base = 50
 
 
   def move(self, data, which_gripper=0):
-    kit.servo[self.gripper_pins[which_gripper]].angle = self.angle + (data * self.angle)
+    self.kit.servo[self.gripper_pins[which_gripper]].angle = self.angle_base + (data * (self.angle_max / 2))
     
 
   # Initializes everything
   def run(self):
     # instanciate servokit for the 16 channel servo board
-    kit = ServoKit(channels = 16)
+    self.kit = ServoKit(channels = 16)
 
     # run through the gripper pins and set them up
     for pin in self.gripper_pins:
       # set the actuation range for the servokit library
-      kit.servo[pin].actuation_range = self.angle_max - self.angle_min
+      self.kit.servo[pin].actuation_range = self.angle_max - self.angle_min
       # set the pwm range the servos respond to
-      kit.servo[pin].set_pulse_width_range(self.pwm_min, self.pwm_max)
+      self.kit.servo[pin].set_pulse_width_range(self.pwm_min, self.pwm_max)
       # initialise the claw servos half open
-      kit.servo[pin].angle = self.base_angle
+      self.kit.servo[pin].angle = self.base_angle
 
     rospy.Subscriber("cmd_gripper1", Float32, self.move, 0)
     rospy.Subscriber("cmd_gripper2", Float32, self.move, 1)
@@ -60,3 +64,6 @@ class Grip:
 if __name__ == '__main__':
   g = Grip()
   g.run()
+
+kit.servo[14].set_pulse_width_range(500, 1500)
+kit.servo[14].actuation_range = 100
