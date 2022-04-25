@@ -54,7 +54,7 @@ class Grip:
       # set the pwm range the servos respond to
       self.kit.servo[pin].set_pulse_width_range(self.pwm_min, self.pwm_max)
       # initialise the claw servos half open
-      self.kit.servo[pin].angle = self.base_angle
+      self.kit.servo[pin].angle = self.angle_base
 
     rospy.Subscriber("cmd_gripper1", Float32, self.move, 0)
     rospy.Subscriber("cmd_gripper2", Float32, self.move, 1)
