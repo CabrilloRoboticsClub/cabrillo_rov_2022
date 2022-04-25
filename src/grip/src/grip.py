@@ -35,11 +35,11 @@ class Grip:
     # angle value for claw open
     self.angle_max = 100
     # angle value at claw halfway open
-    self.angle_base = 50
+    self.angle_base = 90
 
 
   def move(self, data, which_gripper=0):
-    self.kit.servo[self.gripper_pins[which_gripper]].angle = self.angle_base + (data.data * (self.angle_max / 2))
+    self.kit.servo[self.gripper_pins[which_gripper]].angle = data.data * self.angle_max
     
 
   # Initializes everything
