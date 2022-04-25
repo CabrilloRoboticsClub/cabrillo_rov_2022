@@ -19,7 +19,7 @@
 
 
 - name: hydrozoa rov pi hardware config
-  hosts: hydrozoa
+  hosts: rov
   become: yes
   tasks:
 

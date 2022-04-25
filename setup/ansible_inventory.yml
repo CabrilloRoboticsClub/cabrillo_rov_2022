@@ -3,10 +3,16 @@ rov:
     hydrozoa:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
+    earle-s1:
+      ansible_user: ubuntu
+      ansible_ssh_pass: Cabri11o
 
 shore:
   hosts:
     ciaran-thinkpad:
+      ansible_user: ciaran
+      ansible_connection: local
+    ciaran-pc:
       ansible_user: ciaran
       ansible_connection: local
     ubuntu:
