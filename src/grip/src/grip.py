@@ -39,7 +39,7 @@ class Grip:
 
 
   def move(self, data, which_gripper=0):
-    self.kit.servo[self.gripper_pins[which_gripper]].angle = self.angle_base + (float(data) * (self.angle_max / 2))
+    self.kit.servo[self.gripper_pins[which_gripper]].angle = self.angle_base + (data.data * (self.angle_max / 2))
     
 
   # Initializes everything
