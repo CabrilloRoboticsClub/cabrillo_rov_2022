@@ -6,7 +6,7 @@
 #
 ---
 - name: Hydrozoa ROV software prep
-  become: yes
+  become: true
   hosts: all
   tasks:
 
