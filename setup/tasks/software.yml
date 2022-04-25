@@ -30,7 +30,10 @@
 
   - name: pip install depends
     ansible.builtin.pip:
+      state: latest
       name:
+      - setuptools
+      - adafruit-python-shell
       - pigpio
       - adafruit-circuitpython-pca9685
       - adafruit-circuitpython-servokit
