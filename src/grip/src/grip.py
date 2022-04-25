@@ -64,6 +64,3 @@ class Grip:
 if __name__ == '__main__':
   g = Grip()
   g.run()
-
-kit.servo[14].set_pulse_width_range(500, 1500)
-kit.servo[14].actuation_range = 100
