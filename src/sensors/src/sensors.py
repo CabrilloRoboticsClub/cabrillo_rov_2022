@@ -8,6 +8,11 @@ http://docs.ros.org/en/api/sensor_msgs/html/msg/Temperature.html
 http://docs.ros.org/en/api/sensor_msgs/html/msg/FluidPressure.html
 
 PlotJuggler
+
+
+this sensor is onboard https://www.adafruit.com/product/4485
+https://learn.adafruit.com/lis3mdl-triple-axis-magnetometer/python-circuitpython
+https://learn.adafruit.com/lsm6ds33-6-dof-imu=accelerometer-gyro/python-circuitpython
 """
 import time
 import board
