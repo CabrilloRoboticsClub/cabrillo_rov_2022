@@ -55,7 +55,7 @@ while we wait for the pi to do its cloud init we can finish setting up the shore
 
 7) install python and ansible
 ```bash
-sudo apt install python3-pip -y 
+sudo apt install -y python3-pip sshpass 
 sudo pip3 install ansible
 ```
 
