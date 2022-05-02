@@ -9,12 +9,19 @@ rov:
 
 shore:
   hosts:
-    ciaran-thinkpad:
-      ansible_user: ciaran
-      ansible_connection: local
-    ciaran-pc:
-      ansible_user: ciaran
-      ansible_connection: local
+    #ciaran-thinkpad:
+    #  ansible_user: ciaran
+    #  ansible_connection: local
+    #ciaran-pc:
+    #  ansible_user: ciaran
+    #  ansible_connection: local
     ubuntu:
+      ansible_user: ubuntu
+      ansible_ssh_pass: Cabri11o
+      ansible_connection: local
+    CabrilloRobotics-1:
+      ansible_user: ubuntu
+      ansible_ssh_pass: Cabri11o
+    CabrilloRobotics-2:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
