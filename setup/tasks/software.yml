@@ -35,6 +35,7 @@
       - setuptools
       - adafruit-python-shell
       - pigpio
+      - rospy
       - adafruit-circuitpython-pca9685
       - adafruit-circuitpython-servokit
       - adafruit-circuitpython-lsm6ds
