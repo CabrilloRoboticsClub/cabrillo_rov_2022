@@ -35,7 +35,6 @@
       - setuptools
       - adafruit-python-shell
       - pigpio
-      - rospy
       - adafruit-circuitpython-pca9685
       - adafruit-circuitpython-servokit
       - adafruit-circuitpython-lsm6ds
@@ -65,6 +64,7 @@
       - python3-rosinstall
       - python3-rosinstall-generator
       - python3-wstool
+      - python3-rospy
       - build-essential
       - ros-noetic-joy
       #- ros-noetic-joystick-drivers
