@@ -25,3 +25,6 @@ shore:
     CabrilloRobotics-2:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
+    CabrilloRobotics-3:
+      ansible_user: ubuntu
+      ansible_ssh_pass: Cabri11o
