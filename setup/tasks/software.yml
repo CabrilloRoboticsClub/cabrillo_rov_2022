@@ -70,3 +70,5 @@
       #- ros-noetic-joystick-drivers
       - ros-noetic-robot-localization
       - ros-noetic-usb-cam
+      - ros-noetic-geometry-msgs
+      - ros-noetic-sensor-msgs
