@@ -35,7 +35,7 @@ class Grip:
     # angle value for claw open
     self.angle_max = 100
     # angle value at claw halfway open
-    self.angle_base = 90
+    self.angle_base = 100
 
 
   def move(self, data, which_gripper=0):
