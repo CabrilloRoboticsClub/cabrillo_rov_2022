@@ -2,7 +2,7 @@
 #make a on boot cronjob with `chrontab -e`
 # then paste at the bottom `@reboot /home/ubuntu/cabrillo_rov/misc/shore.sh`
 source /opt/ros/noetic/setup.bash
-cd cabrillo_rov/
+cd ~/cabrillo_rov/
 git pull    # Comment out for quicker rov startup
 catkin_make # Comment out for quicker rov startup
 source ./devel/setup.bash
