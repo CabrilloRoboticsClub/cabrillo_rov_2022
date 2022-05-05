@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# execution of this is added to ubuntu user's crontab by running the ansible playbook "ansible_playbook_rov.yml"
+# execution of this is added to root user's crontab by running the ansible playbook "setup/ansible_playbook.yml"
 #
 sleep 1
 source /opt/ros/noetic/setup.bash
