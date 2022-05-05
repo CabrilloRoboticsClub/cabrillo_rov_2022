@@ -16,19 +16,19 @@
   </node>
 -->
  
-  <node name="usb_cam0" pkg="usb_cam" type="usb_cam_node" output="screen" >
-    <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_42879460-video-index0" />
+  <node name="cam_front_claw" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_289FC060-video-index0" />
     <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />
-    <param name="camera_frame_id" value="cam_0" />
+    <param name="camera_frame_id" value="cam_front_claw" />
     <param name="io_method" value="mmap"/>
-    <param name="camera_name" value="cam_0" />
+    <param name="camera_name" value="cam_front_claw" />
   </node>
 
 <!-- 
   <node name="usb_cam1" pkg="usb_cam" type="usb_cam_node" output="screen" >
-    <param name="video_device" value="/dev/v4l/by-id/usb-Image_Processor_Integrated_Camera_Integrated_Camera-video-index0" />
+    <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_289FC060-video-index0" />
     <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />
