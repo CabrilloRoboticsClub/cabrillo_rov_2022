@@ -4,6 +4,7 @@
 #
 sleep 1
 source /opt/ros/noetic/setup.bash
+export ROS_HOSTNAME=$HOSTNAME.local
 roscore &
 cd /home/ubuntu/cabrillo_rov/
 git pull    # Comment out for quicker rov startup
