@@ -19,8 +19,8 @@ class Thrust:
     self.last = [self.base] * 4
     self.thrust = None
     self.overridden = False
-    self.scaler = self.max_from_base / 3.0  # @TODO dynamic reconfigure this
-
+    self.scaler = self.max_from_base / 2.0  # @TODO dynamic reconfigure this
+    self.angular_scaler = 1.0 / 2.0                # @TODO dynamic reconfigure this
 
   # @sync #TODO: add blocking so if we get a joy/command msg we will ignore it
   def move(self, data):
@@ -31,8 +31,8 @@ class Thrust:
       # data.angular.z  # "yaw" rotate left/right
 
       # @NOTE: data.angular.x is already from -1 -> 1 so can just use it as such
-      self.thrust(self.thruster_pins[0], self.base + ((data.linear.x - data.angular.z) * self.scaler))
-      self.thrust(self.thruster_pins[1], self.base + ((data.linear.x + data.angular.z) * self.scaler))
+      self.thrust(self.thruster_pins[0], self.base + ((data.linear.x - (self.angular_scaler * data.angular.z)) * self.scaler))
+      self.thrust(self.thruster_pins[1], self.base + ((data.linear.x + (self.angular_scaler * data.angular.z)) * self.scaler))
       self.thrust(self.thruster_pins[2], self.base + (data.linear.z * self.scaler))
       self.thrust(self.thruster_pins[3], self.base + (data.linear.z * self.scaler))
 
