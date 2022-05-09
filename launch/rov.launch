@@ -15,7 +15,7 @@
     <param name="self_diagnose" value="false"/>
   </node>
 -->
- 
+<!--
   <node name="cam_claw" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_289FC060-video-index0" />
     <param name="image_width" value="640" />
@@ -25,8 +25,8 @@
     <param name="io_method" value="mmap"/>
     <param name="camera_name" value="cam_claw" />
   </node>
+-->
 
-<!--
   <node name="cam_down" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_D683C060-video-index0" />
     <param name="image_width" value="640" />
@@ -36,6 +36,6 @@
     <param name="io_method" value="mmap"/>
     <param name="camera_name" value="cam_down" />
   </node>
--->
+
 
 </launch>
