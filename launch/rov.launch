@@ -24,6 +24,7 @@
     <param name="camera_frame_id" value="cam_claw" />
     <param name="io_method" value="mmap"/>
     <param name="camera_name" value="cam_claw" />
+    <remap from="image" to="/cam_claw/image_raw"/>
   </node>
 
 
@@ -35,6 +36,7 @@
     <param name="camera_frame_id" value="cam_down" />
     <param name="io_method" value="mmap"/>
     <param name="camera_name" value="cam_down" />
+    <remap from="image" to="/cam_down/image_raw"/>
   </node>
 
 
