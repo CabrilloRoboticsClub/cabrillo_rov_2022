@@ -41,8 +41,8 @@ class Sensors:
   def run(self):
     rospy.Timer(rospy.Duration(.1), self.read_imu)  # call function at 10hz
     rospy.Timer(rospy.Duration(.1), self.read_mag)
-    rospy.Timer(rospy.Duration(1), self.read_temp)  # call function at 1hz
-    rospy.Timer(rospy.Duration(.1), self.read_pressure)
+    rospy.Timer(rospy.Duration(10), self.read_temp)  # call function at 1hz
+    # rospy.Timer(rospy.Duration(.1), self.read_pressure)
     rospy.spin()
 
   def read_imu(self, _):  # for some reason a rospy.timer.TimerEvent object is being passed in, did not used to be
