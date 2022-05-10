@@ -21,6 +21,7 @@
     <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />
+    <param name="framerate" value="10" />
     <param name="camera_frame_id" value="cam_claw" />
     <param name="io_method" value="mmap"/>
     <param name="camera_name" value="cam_claw" />
@@ -32,6 +33,7 @@
     <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />
+    <param name="framerate" value="10" />
     <param name="camera_frame_id" value="cam_down" />
     <param name="io_method" value="mmap"/>
     <param name="camera_name" value="cam_down" />
