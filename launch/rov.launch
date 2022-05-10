@@ -3,7 +3,7 @@
   <node name="sensors" pkg="sensors" type="sensors.py"></node>
   <node name="grip" pkg="grip" type="grip.py"></node>
   
-<!--
+
   <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
     <param name="output_frame" value="odom"/>
     <param name="freq" value="10.0"/>
@@ -14,7 +14,7 @@
     <param name="debug" value="false"/>
     <param name="self_diagnose" value="false"/>
   </node>
--->
+
 
   <node name="cam_claw" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_289FC060-video-index0" />
