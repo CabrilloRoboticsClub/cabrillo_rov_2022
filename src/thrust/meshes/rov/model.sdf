@@ -1,0 +1,25 @@
+<robot name="rov">
+<link name='odom'>
+  <inertial>
+    <mass value="1"/>
+    <origin xyz="0 0 0.5" rpy="0 0 0"/>
+    <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+  </inertial>
+  <self_collide>0</self_collide>
+  <enable_wind>0</enable_wind>
+  <kinematic>0</kinematic>
+  <pose>0 0 0 0 -0 0</pose>
+  <gravity>0</gravity>
+  <visual name='visual'>
+    <geometry>
+        <mesh filename="package://thrust/meshes/rov/frame.stl" scale="0.03 0.03 0.03" />
+    </geometry>
+    <material name="Cyan">
+        <color rgba="0 1.0 1.0 1.0"/>
+    </material>
+    <pose>0 0 0 0 -0 0</pose>
+    <transparency>0</transparency>
+    <cast_shadows>0</cast_shadows>
+  </visual>
+</link>
+</robot>
