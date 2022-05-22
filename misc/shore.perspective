@@ -441,7 +441,7 @@
                   "type": "repr"
                 },
                 "rviz_config_file": {
-                  "repr": "'/opt/ros/noetic/share/rviz/default.rviz'",
+                  "repr": "'/home/ubuntu/cabrillo_rov/misc/rov.rviz'",
                   "type": "repr"
                 }
               },
