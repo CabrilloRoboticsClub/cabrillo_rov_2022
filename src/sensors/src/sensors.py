@@ -20,10 +20,12 @@ import adafruit_lis3mdl
 import adafruit_mpu6050
 import rospy
 from sensor_msgs.msg import Imu, MagneticField, Temperature, FluidPressure
-from geometry_msgs.msg import Vector3, Quaternion
+from geometry_msgs.msg import Vector3, Quaternion, Pose, PoseStamped
 from adafruit_lsm6ds.lsm6ds33 import LSM6DS33
 import busio
 from adafruit_lis3mdl import LIS3MDL
+from std_msgs.msg import Header
+import rospy
 
 
 class Sensors:
@@ -37,6 +39,7 @@ class Sensors:
     self.mag_publisher = rospy.Publisher('/mag/raw', MagneticField, queue_size=10)
     self.temp_publisher = rospy.Publisher('/temperature/raw', Temperature, queue_size=10)
     self.pressure_publisher = rospy.Publisher('/pressure/raw', FluidPressure, queue_size=10)
+    self.mag_pose_publisher = rospy.Publisher('/mag/pose', PoseStamped, queue_size=10)
 
   def run(self):
     rospy.Timer(rospy.Duration(.1), self.read_imu)  # call function at 10hz
@@ -56,6 +59,11 @@ class Sensors:
     mag_f.header.frame_id = self.frame
     mag_f.header.stamp = rospy.Time.now()
     self.mag_publisher.publish(mag_f)
+    self.mag_pose_publisher.publish(
+      PoseStamped(pose=Pose(orientation=Quaternion(x=mag_f.magnetic_field.x,
+                                                   y=mag_f.magnetic_field.y,
+                                                   z=mag_f.magnetic_field.z)),
+                  header=Header(stamp=rospy.Time.now(), frame_id="odom")))
 
   def read_temp(self, _):
     temp = Temperature(temperature=self.mpu.temperature)
