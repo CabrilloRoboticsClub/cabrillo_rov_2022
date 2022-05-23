@@ -135,11 +135,15 @@
     community.general.make:
       chdir: /home/ubuntu/pigpio-master/
   - name: make install
+    become: yes
+    become_user: root
     community.general.make:
       chdir: /home/ubuntu/pigpio-master/
       target: install
 # pigpiod service file https://forums.raspberrypi.com/viewtopic.php?t=319761
   - name: add pigpio service
+    become: yes
+    become_user: root
     ansible.builtin.blockinfile:
       path: /lib/systemd/system/pigpiod.service
       create: yes
