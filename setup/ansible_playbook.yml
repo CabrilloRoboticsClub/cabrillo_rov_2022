@@ -188,7 +188,7 @@
       user: ubuntu
       name: rov startup script
       special_time: reboot
-      job: /home/ubuntu/cabrillo_rov/misc/rov_startup.sh > /tmp/rov_startup_log1 2> /tmp/rov_startup_log2
+      job: /home/ubuntu/cabrillo_rov/misc/rov_startup.sh > /tmp/rov_startup_stdout 2> /tmp/rov_startup_stderr
 
   - name: add ros setup to bashrc
     ansible.builtin.blockinfile:
