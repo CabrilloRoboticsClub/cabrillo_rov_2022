@@ -3,9 +3,11 @@ rov:
     hydrozoa:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
+      ansible_become_pass: Cabri11o
     earle-s1:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
+      ansible_become_pass: Cabri11o
 
 shore:
   hosts:
