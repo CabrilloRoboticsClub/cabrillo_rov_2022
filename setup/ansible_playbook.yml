@@ -181,7 +181,7 @@
     ansible.builtin.lineinfile:
       path: /etc/udev/rules.d/99-com.rules
       create: yes
-      line: SUBSYSTEM=="ic2-dev", GROUP="i2c", MODE="0660"
+      line: SUBSYSTEM=="ic2*", GROUP="i2c", MODE="0660"
 
   - name: add startup script to root crontab
     ansible.builtin.cron:
