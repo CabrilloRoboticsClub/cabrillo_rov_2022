@@ -94,7 +94,7 @@
 
   - name: rosdep update
     become: yes
-    become_user: ubuntu
+    become_user: {{ansible_user}}
     ansible.builtin.shell:
       cmd: rosdep update
     ignore_errors: yes
