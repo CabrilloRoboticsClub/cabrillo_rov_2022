@@ -48,7 +48,7 @@
     ansible.builtin.apt_repository:
       repo: deb http://packages.ros.org/ros/ubuntu focal main
 
-- name: install ros core on rov
+- name: install ros base on rov
   become: true
   hosts: rov
   tasks:
@@ -56,7 +56,7 @@
   - name: apt install ros (THIS MAY TAKE A WHILE)
     ansible.builtin.apt:
       name:
-      - ros-noetic-core
+      - ros-noetic-ros-base
 
 - name: install ros desktop on shore
   become: true
