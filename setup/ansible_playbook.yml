@@ -4,7 +4,8 @@
 ---
 
 - name: install dependancies
-  become: true
+  become: yes
+  become_user: root
   hosts: all
   tasks:
 
@@ -48,25 +49,11 @@
     ansible.builtin.apt_repository:
       repo: deb http://packages.ros.org/ros/ubuntu focal main
 
-- name: install ros base on rov
-  become: true
-  hosts: rov
-  tasks:
-
-  - name: apt install ros (THIS MAY TAKE A WHILE)
-    ansible.builtin.apt:
-      name:
-      - ros-noetic-ros-base
-
-- name: install ros desktop on shore
-  become: true
-  hosts: shore
-  tasks:
-
   - name: apt install ros (THIS MAY TAKE A WHILE)
     ansible.builtin.apt:
       name:
       - ros-noetic-desktop-full
+
 
 - name: install supplimentary software
   become: true
@@ -92,8 +79,22 @@
       - ros-noetic-geometry-msgs
       - ros-noetic-sensor-msgs
 
+  - name: rosdep init
+    become: yes
+    become_user: root
+    ansible.builtin.shell:
+      cmd: rosdep init
+    ignore_errors: yes
 
-- name: hydrozoa rov download cabrillo_rov git repo
+  - name: rosdep update
+    become: yes
+    become_user: ubuntu
+    ansible.builtin.shell:
+      cmd: rosdep update
+    ignore_errors: yes
+
+
+- name: download cabrillo_rov git repo in home folder
   hosts: all
   tags: git-repo
   tasks:
@@ -105,7 +106,7 @@
       track_submodules: yes
 
 - name: disable dell onboard acceleromiter
-  hosts: shore
+  hosts: ciaran-dell
   tasks:
   - name: modprobe.d/blacklist.conf
     ansible.builtin.blockinfile:
@@ -124,12 +125,6 @@
       append: yes
       groups: i2c
       name: ubuntu
-
-  - name: rosdep init
-    ansible.builtin.shell:
-      chdir: /home/{{ansible_user}}/cabrillo_rov
-      cmd: rosdep init && rosdep update
-    ignore_errors: yes
 
   - name: enable i2c
     ansible.builtin.lineinfile:
