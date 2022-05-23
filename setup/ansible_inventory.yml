@@ -4,29 +4,31 @@ rov:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
       ansible_become_pass: Cabri11o
-    earle-s1:
-      ansible_user: ubuntu
-      ansible_ssh_pass: Cabri11o
-      ansible_become_pass: Cabri11o
+#    earle-s1:
+#      ansible_user: ubuntu
+#      ansible_ssh_pass: Cabri11o
+#      ansible_become_pass: Cabri11o
 
 shore:
   hosts:
-    #ciaran-thinkpad:
-    #  ansible_user: ciaran
-    #  ansible_connection: local
-    #ciaran-pc:
-    #  ansible_user: ciaran
-    #  ansible_connection: local
-    ubuntu:
+#    ciaran-thinkpad:
+#      ansible_user: ciaran
+#      ansible_connection: local
+#    ciaran-pc:
+#      ansible_user: ciaran
+#      ansible_connection: local
+    ciaran-dell:
       ansible_user: ubuntu
-      ansible_ssh_pass: Cabri11o
-      ansible_connection: local
-    CabrilloRobotics-1:
-      ansible_user: ubuntu
-      ansible_ssh_pass: Cabri11o
-    CabrilloRobotics-2:
-      ansible_user: ubuntu
-      ansible_ssh_pass: Cabri11o
-    CabrilloRobotics-3:
-      ansible_user: ubuntu
-      ansible_ssh_pass: Cabri11o
+#    ubuntu:
+#      ansible_user: ubuntu
+#      ansible_ssh_pass: Cabri11o
+#      ansible_connection: local
+#    CabrilloRobotics-1:
+#      ansible_user: ubuntu
+#      ansible_ssh_pass: Cabri11o
+#    CabrilloRobotics-2:
+#      ansible_user: ubuntu
+#      ansible_ssh_pass: Cabri11o
+#    CabrilloRobotics-3:
+#      ansible_user: ubuntu
+#      ansible_ssh_pass: Cabri11o
