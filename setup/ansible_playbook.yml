@@ -131,10 +131,10 @@
       remote_src: yes
       src: https://github.com/joan2937/pigpio/archive/master.zip
       dest: /home/ubuntu/
-  - name: make
+  - name: build pigpio (make)
     community.general.make:
       chdir: /home/ubuntu/pigpio-master/
-  - name: make
+  - name: make install
     community.general.make:
       chdir: /home/ubuntu/pigpio-master/
       target: install
