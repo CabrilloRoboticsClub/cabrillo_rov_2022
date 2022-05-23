@@ -183,7 +183,7 @@
       create: yes
       line: SUBSYSTEM=="ic2*", GROUP="i2c", MODE="0660"
 
-  - name: add startup script to root crontab
+  - name: add startup script to ubuntu crontab
     ansible.builtin.cron:
       user: ubuntu
       name: rov startup script
