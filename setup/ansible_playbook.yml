@@ -163,6 +163,8 @@
         [Install]
         WantedBy=multi-user.target
   - name: systemd enable pigpiod
+    become: yes
+    become_user: root
     ansible.builtin.systemd:
       daemon_reload: yes
       enabled: yes
