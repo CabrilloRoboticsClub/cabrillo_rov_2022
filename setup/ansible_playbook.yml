@@ -126,8 +126,18 @@
 - name: rov pigpiod setup
   hosts: rov
   tasks:
-  - name:
-
+  - name: download and unarchive source code
+    ansible.builtin.unarchive:
+      remote_src: yes
+      src: https://github.com/joan2937/pigpio/archive/master.zip
+      dest: /home/ubuntu/
+  - name: make
+    community.general.make:
+      chdir: /home/ubuntu/pigpio-master/
+  - name: make
+    community.general.make:
+      chdir: /home/ubuntu/pigpio-master/
+      target: install
 
 
 - name: hydrozoa rov pi hardware config
