@@ -3,8 +3,7 @@
 #
 ---
 
-
-- name: Hydrozoa ROV software prep
+- name: install dependancies
   become: true
   hosts: all
   tasks:
@@ -49,10 +48,30 @@
     ansible.builtin.apt_repository:
       repo: deb http://packages.ros.org/ros/ubuntu focal main
 
+- name: install ros core on rov
+  become: true
+  hosts: rov
+  tasks:
+
+  - name: apt install ros (THIS MAY TAKE A WHILE)
+    ansible.builtin.apt:
+      name:
+      - ros-noetic-core
+
+- name: install ros desktop on shore
+  become: true
+  hosts: shore
+  tasks:
+
   - name: apt install ros (THIS MAY TAKE A WHILE)
     ansible.builtin.apt:
       name:
       - ros-noetic-desktop-full
+
+- name: install supplimentary software
+  become: true
+  hosts: all
+  tasks:
 
   - name: apt install ros extensions
     ansible.builtin.apt:
