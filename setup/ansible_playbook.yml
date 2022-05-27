@@ -27,6 +27,7 @@
       - python3-pip
       - python3-smbus
       - vim
+      - sysfsutils
 
   - name: apt remove packages
     ansible.builtin.apt:
@@ -112,16 +113,19 @@
       track_submodules: yes
 
 
-- name: disable dell onboard acceleromiter
-  hosts: ciaran-dell
+- name: shore hardware configs
+  hosts: shore
   tasks:
-  - name: modprobe.d/blacklist.conf
+  - name: disable dell acceleromiter
     ansible.builtin.blockinfile:
       path: /etc/modprobe.d/blacklist.conf
       block: |
         blacklist lis3lv02d_i2c
         blacklist lis3lv02d
-
+  - name: disable bluetooth ertm (so bluetooth xbox works)
+    ansible.builtin.blockinfile:
+      path: /etc/sysfs.conf
+      block: /module/bluetooth/parameters/disable_ertm=1
 
 - name: rov pigpiod setup
   hosts: rov
