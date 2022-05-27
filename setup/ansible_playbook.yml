@@ -198,7 +198,7 @@
 
   - name: add ros setup to bashrc
     ansible.builtin.blockinfile:
-      marker: "cabrillo_rov ansible"
+      marker: "# cabrillo_rov ansible"
       path: /home/{{ansible_user}}/.bashrc
       block: source /opt/ros/noetic/setup.bash
 
