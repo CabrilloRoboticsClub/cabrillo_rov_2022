@@ -26,6 +26,7 @@ import busio
 from adafruit_lis3mdl import LIS3MDL
 from std_msgs.msg import Header
 import rospy
+import math
 
 
 class Sensors:
@@ -35,6 +36,9 @@ class Sensors:
     i2c = board.I2C()  # uses board.SCL and board.SDA
     self.mpu = LSM6DS33(i2c)
     self.mag = LIS3MDL(i2c)
+    self.mag_offset = math.atan2(self.mag.magnetic.y, self.mag.magnetic.x)
+    rospy.loginfo("mag heading offset:" + str(self.mag_offset))
+
     self.imu_publisher = rospy.Publisher('/imu_data', Imu, queue_size=10)
     self.mag_publisher = rospy.Publisher('/mag/raw', MagneticField, queue_size=10)
     self.temp_publisher = rospy.Publisher('/temperature/raw', Temperature, queue_size=10)
@@ -59,10 +63,12 @@ class Sensors:
     mag_f.header.frame_id = self.frame
     mag_f.header.stamp = rospy.Time.now()
     self.mag_publisher.publish(mag_f)
+
+    rel_mag = math.atan2(self.mag.magnetic.y, self.mag.magnetic.x) - self.mag_offset
     self.mag_pose_publisher.publish(
-      PoseStamped(pose=Pose(orientation=Quaternion(x=mag_f.magnetic_field.x,
-                                                   y=mag_f.magnetic_field.y,
-                                                   z=mag_f.magnetic_field.z)),
+      PoseStamped(pose=Pose(orientation=Quaternion(x=math.cos(rel_mag),
+                                                   y=math.sin(rel_mag),
+                                                   z=0)),
                   header=Header(stamp=rospy.Time.now(), frame_id="odom")))
 
   def read_temp(self, _):
