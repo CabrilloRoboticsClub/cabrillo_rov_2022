@@ -36,7 +36,7 @@ class Sensors:
     i2c = board.I2C()  # uses board.SCL and board.SDA
     self.mpu = LSM6DS33(i2c)
     self.mag = LIS3MDL(i2c)
-    self.mag_offset = math.atan2(self.mag.magnetic.y, self.mag.magnetic.x)
+    self.mag_offset = math.atan2(self.mag.magnetic[1], self.mag.magnetic[0])
     rospy.loginfo("mag heading offset:" + str(self.mag_offset))
 
     self.imu_publisher = rospy.Publisher('/imu_data', Imu, queue_size=10)
@@ -64,7 +64,7 @@ class Sensors:
     mag_f.header.stamp = rospy.Time.now()
     self.mag_publisher.publish(mag_f)
 
-    rel_mag = math.atan2(self.mag.magnetic.y, self.mag.magnetic.x) - self.mag_offset
+    rel_mag = math.atan2(self.mag.magnetic[1], self.mag.magnetic[0]) - self.mag_offset
     self.mag_pose_publisher.publish(
       PoseStamped(pose=Pose(orientation=Quaternion(x=math.cos(rel_mag),
                                                    y=math.sin(rel_mag),
