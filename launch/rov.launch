@@ -18,7 +18,7 @@
 
   <node name="cam_claw" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_289FC060-video-index0" />
-    <param name="image_width" value="864" />
+    <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />
     <param name="framerate" value="10" />
@@ -30,7 +30,7 @@
 
   <node name="cam_drive" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_D683C060-video-index0" />
-    <param name="image_width" value="864" />
+    <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />
     <param name="framerate" value="10" />
@@ -41,7 +41,7 @@
 
   <node name="cam_down" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_0163C060-video-index0" />
-    <param name="image_width" value="864" />
+    <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />
     <param name="framerate" value="10" />
