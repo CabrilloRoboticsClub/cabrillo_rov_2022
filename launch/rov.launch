@@ -18,7 +18,7 @@
 
   <node name="cam_claw" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/v4l/by-id/usb-046d_HD_Webcam_C615_289FC060-video-index0" />
-    <param name="image_width" value="640" />
+    <param name="image_width" value="720" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />
     <param name="framerate" value="10" />
