@@ -7,8 +7,8 @@ source /opt/ros/noetic/setup.bash
 export ROS_HOSTNAME=$HOSTNAME.local
 roscore &
 cd /home/ubuntu/cabrillo_rov/
-git pull    # Comment out for quicker rov startup
-catkin_make # Comment out for quicker rov startup
+# git pull    # Comment out for quicker rov startup
+# catkin_make # Comment out for quicker rov startup
 source ./devel/setup.bash
 sleep 5
 roslaunch ./launch/rov.launch &

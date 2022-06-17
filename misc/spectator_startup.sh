@@ -12,4 +12,4 @@ export ROS_MASTER_URI='http://hydrozoa.local:11311'
 export ROS_HOSTNAME=$HOSTNAME.local
 sleep 1
 
-#rqt --perspective-file misc/spectator.perspective
+rqt --perspective-file misc/spectator.perspective
