@@ -11,19 +11,25 @@
 Servo engine;
 
 void setup() {
-  // put your setup code here, to run once:
   engine.attach(ENG_PIN, PWM_MIN, PWM_MAX);
-  /*
-  engine.write(0);
-  delay(2000);
-  engine.write(90);
-  */
-}
+} //end setup
 
+// @TODO you might try moving all of the code besides the while loop into
+// setup some arduinos have issues with that
 void loop() {
-  // put your main code here, to run repeatedly:
-  
-}
+  //Start at the surface of the pool
+  delay(45000); // 45 sec get into position
+  spin(-80.0);  // Down
+  delay(45000); // 45 sec sink
+  spin(80.0);   // Up
+  delay(45000); // 45 sec ascend
+  spin(-80.0);  // Down
+  delay(45000); // 45 sec sink
+  spin(80.0);   // Up
+  // ascend up then drop into a forever while loop
+  // until unit is power cycled
+  while(true){;}
+} //end loop
 
 void spin(double mm) {
   if (mm >= 0){
