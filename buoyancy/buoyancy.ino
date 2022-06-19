@@ -3,6 +3,7 @@
 // https://www.arduino.cc/reference/en/libraries/servo/
 // 8 mm distance/rotation
 // 0.5 rotations/sec
+//When Uploading to current Arduino Nano use the “ATmega380P (Old Bootloader)" option, for the new board defaults work 
 
 #define ENG_PIN 12
 #define PWM_MIN 500
@@ -18,6 +19,17 @@ void setup() {
 // setup some arduinos have issues with that
 void loop() {
   //Start at the surface of the pool
+<<<<<<< HEAD
+  spin(-80.0);     //Homing (start with syring in open position)
+  delay(45000); // 45 sec get into position
+  spin(80.0);  // Down
+  delay(45000); // 45 sec sink
+  spin(-80.0);   // Up
+  delay(45000); // 45 sec ascend
+  spin(80.0);  // Down
+  delay(45000); // 45 sec sink
+  spin(-80.0);   // Up
+=======
   delay(45000); // 45 sec get into position
   spin(-80.0);  // Down
   delay(45000); // 45 sec sink
@@ -26,6 +38,7 @@ void loop() {
   spin(-80.0);  // Down
   delay(45000); // 45 sec sink
   spin(80.0);   // Up
+>>>>>>> 12a4c1decdbefbc3320e6edd5b507997a22f0cb2
   // ascend up then drop into a forever while loop
   // until unit is power cycled
   while(true){;}
