@@ -17,9 +17,10 @@ class Grip:
     # create class member variabe for the kit instance
     self.kit = None
 
-    self.gripper_pins = [4, 5]
-    # 4 vertical
-    # 5 horizontal
+    self.gripper_pins = [4, 8]
+    # 4 horizontal (right)
+    # 5 vertical (left)
+    # ping 5 swapped to pin 8
 
     # pwm value at claw fully closed
     self.pwm_min = 500
