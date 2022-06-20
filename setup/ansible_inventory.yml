@@ -1,13 +1,20 @@
 rov:
   hosts:
-    hydrozoa:
-      ansible_user: ubuntu
-      ansible_ssh_pass: Cabri11o
-      ansible_become_pass: Cabri11o
 #    earle-s1:
 #      ansible_user: ubuntu
 #      ansible_ssh_pass: Cabri11o
 #      ansible_become_pass: Cabri11o
+#      ansible_host: 192.168.254.100
+    hydrozoa:
+      ansible_user: ubuntu
+      ansible_ssh_pass: Cabri11o
+      ansible_become_pass: Cabri11o
+      ansible_host: 192.168.254.101
+    hydrozoa-2:
+      ansible_user: ubuntu
+      ansible_ssh_pass: Cabri11o
+      ansible_become_pass: Cabri11o
+      ansible_host: 192.168.254.102
 
 shore:
   hosts:
