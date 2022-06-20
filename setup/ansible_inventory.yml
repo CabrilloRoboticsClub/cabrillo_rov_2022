@@ -5,16 +5,22 @@ rov:
 #      ansible_ssh_pass: Cabri11o
 #      ansible_become_pass: Cabri11o
 #      ansible_host: 192.168.254.100
+#      ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
     hydrozoa:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
       ansible_become_pass: Cabri11o
       ansible_host: 192.168.254.101
+      ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
     hydrozoa-2:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
       ansible_become_pass: Cabri11o
       ansible_host: 192.168.254.102
+      ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
 
 shore:
   hosts:
@@ -36,6 +42,7 @@ shore:
     CabrilloRobotics-2:
       ansible_user: ubuntu
       ansible_ssh_pass: Cabri11o
+      ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 #    CabrilloRobotics-3:
 #      ansible_user: ubuntu
 #      ansible_ssh_pass: Cabri11o
