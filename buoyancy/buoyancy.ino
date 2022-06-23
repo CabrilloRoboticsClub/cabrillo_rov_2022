@@ -5,7 +5,7 @@
 // 0.5 rotations/sec
 //When Uploading to current Arduino Nano use the “ATmega380P (Old Bootloader)" option, for the new board defaults work 
 
-#define ENG_PIN 12
+#define ENG_PIN 2
 #define PWM_MIN 500
 #define PWM_MAX 2500
 
