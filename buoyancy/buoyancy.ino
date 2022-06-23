@@ -18,20 +18,65 @@ void setup() {
 // @TODO you might try moving all of the code besides the while loop into
 // setup some arduinos have issues with that
 void loop() {
-  //Start at the surface of the pool
-  spin(-80.0);     //Homing (start with syring in open position)
-  delay(45000); // 45 sec get into position
-  spin(80.0);  // Down
-  delay(45000); // 45 sec sink
-  spin(-80.0);   // Up
-  delay(45000); // 45 sec ascend
-  spin(80.0);  // Down
-  delay(45000); // 45 sec sink
-  spin(-80.0);   // Up
-  // ascend up then drop into a forever while loop
-  // until unit is power cycled
+  /*
+   * we open the top of the bouyancy engine and flip the switch
+   * the bouyancy engine powers on and goes to water out position to evacuate the air from the syringe
+   */
+
+   // evacuate the air from the surface
+  WaterOut();
+
+  /*
+   * wait 2 minutes to give time to get the bouyancy engine into position with the robot
+   */
+  delay(3*60*1000UL); //delay 3 minutes
+
+/*
+ * now starts the vertical profiling
+ */
+  
+  // first descend (1/3)
+  WaterIn();
+  delay(1*60*1000UL); // delay 1 minute
+
+// first ascend (1/3)
+  WaterOut();
+  delay(1*60*1000UL); // delay 1 minute
+
+  // second descend (2/3)
+  WaterIn();
+  delay(1*60*1000UL); // delay 1 minute
+
+  // second ascend (2/3)
+  WaterOut();
+  delay(1*60*1000UL); // delay 1 minute
+
+  // third descend (3/3)
+  WaterIn();
+  delay(1*60*1000UL); // delay 1 minute
+
+  // third ascend (3/3)
+  WaterOut();
+
+  
+  delay(5*60*1000UL); // delay 5 minute
+  // pull air in at end to reset
+  WaterIn();
+  
+  /*
+   * drop into a forever loop when finished
+   */
   while(true){;}
+
 } //end loop
+
+void WaterIn() {
+  spin(80);
+}
+
+void WaterOut(){
+  spin(-80);
+}
 
 void spin(double mm) {
   if (mm >= 0){
