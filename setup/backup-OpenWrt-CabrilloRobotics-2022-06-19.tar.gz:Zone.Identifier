@@ -1,4 +1,0 @@
-[ZoneTransfer]
-ZoneId=3
-ReferrerUrl=http://192.168.254.254/cgi-bin/luci/admin/system/flash
-HostUrl=http://192.168.254.254/cgi-bin/cgi-backup
