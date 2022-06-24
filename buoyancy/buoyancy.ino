@@ -9,6 +9,9 @@
 #define PWM_MIN 500
 #define PWM_MAX 2500
 
+#define DESCENT_DELAY 
+#define ASCENT_DELAY 1*60*1000UL
+
 Servo engine;
 
 void setup() {
@@ -29,19 +32,34 @@ void loop() {
   /*
    * wait 2 minutes to give time to get the bouyancy engine into position with the robot
    */
-  delay(3*60*1000UL); //delay 3 minutes
+  delay(5*60*1000UL); //delay 5 minutes
 
 /*
  * now starts the vertical profiling
  */
-  
+
+  for(int i=0; i<=3; i++){
+    /*
+     * this loop does the vertical profiling
+     * init i at 0
+     * 3 vertical profiles so <= i
+     * increment I at the end of the loop
+     */
+    WaterIn(); // DIVE DIVE DIVE
+    delay(1*60*1000UL); // WAIT WAIT WAIT
+
+    WaterOut(); // SURFACE SURFACE SURFACE 
+    delay(1*60*1000UL); // WAIT WAIT WAIT
+  }
+
+/* 
   // first descend (1/3)
   WaterIn();
-  delay(1*60*1000UL); // delay 1 minute
+  delay(DESCENT_DELAY); // delay 1 minute
 
 // first ascend (1/3)
   WaterOut();
-  delay(1*60*1000UL); // delay 1 minute
+  delay(ASCENT DELAY); // delay 1 minute
 
   // second descend (2/3)
   WaterIn();
@@ -57,9 +75,10 @@ void loop() {
 
   // third ascend (3/3)
   WaterOut();
-
+*/
   
-  delay(5*60*1000UL); // delay 5 minute
+  delay(10*60*1000UL); // delay 10 minute
+  //incase we dont get to it it will just sit on the surfce
   // pull air in at end to reset
   WaterIn();
   
