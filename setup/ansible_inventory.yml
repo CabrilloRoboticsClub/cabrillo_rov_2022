@@ -26,6 +26,7 @@ shore:
   hosts:
     localshore:
       ansible_connection: local
+      ansible_user: {{ ansible_user_local }}
 #    ciaran-thinkpad:
 #      ansible_user: ciaran
 #      ansible_connection: local
