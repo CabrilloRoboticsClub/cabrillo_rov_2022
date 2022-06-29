@@ -3,6 +3,11 @@
 #
 ---
 
+- name: get the username running the deploy
+  become: false
+  local_action: command whoami
+  register: ansible_user_local
+
 - name: install dependancies
   become: yes
   become_user: root
