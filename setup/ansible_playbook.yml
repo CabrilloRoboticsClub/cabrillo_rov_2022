@@ -105,6 +105,7 @@
   hosts: all
   tags: git-repo
   tasks:
+  
   - name: git clone or pull cabrillo_rov
     ansible.builtin.git:
       dest: /home/{{ansible_user}}/cabrillo_rov
