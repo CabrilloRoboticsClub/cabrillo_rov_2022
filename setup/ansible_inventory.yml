@@ -24,7 +24,7 @@ rov:
 
 shore:
   hosts:
-    shore:
+    localshore:
       ansible_connection: local
 #    ciaran-thinkpad:
 #      ansible_user: ciaran
