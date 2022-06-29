@@ -10,4 +10,4 @@ sudo apt install -y python3-pip sshpass openssh-server
 
 sudo pip3 install ansible
 
-ansible-playbook -i ansible_inventory.yml ansible_playbook.yml
+ansible-playbook -i ansible_inventory.yml ansible_playbook.yml --ask-become-pass
