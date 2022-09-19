@@ -1,4 +1,4 @@
-# Cabrillo College's Robotics Club's ROV Repo for the MATE ROV competition
+# Cabrillo College's Robotics Club's ROV Repo for the MATE ROV 2022 competition
 
 ## Dubbed hydrozoa
 
